@@ -1,0 +1,51 @@
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Dependencies
+node_modules/
+
+# Vite build output
+dist/
+
+# Local environment files
+.env
+.env.*.local
+*.local
+
+# Editor & OS-specific files
+.vscode/
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
+
+# TypeScript build cache
+*.tsbuildinfo
+
+# Testing & coverage
+coverage/
+
+# Misc
+*.sw?
+
+
+# More dependencies & build cache
+.pnp/
+.pnp.js
+.turbo/
+.next/
+.cache/
+
+# Editor & system junk
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
+*.sw?
