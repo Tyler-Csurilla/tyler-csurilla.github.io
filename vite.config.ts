@@ -3,7 +3,11 @@ import { defineConfig } from "vite";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: "/",
   plugins: [react()],
+  build: {
+    outDir: "docs",
+  },
   esbuild: {
     jsxFactory: "React.createElement",
     jsxFragment: "React.Fragment",
