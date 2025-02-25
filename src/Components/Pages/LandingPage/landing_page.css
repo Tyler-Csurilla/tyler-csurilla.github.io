@@ -1,0 +1,71 @@
+/* Landing Page Styles */
+#landing-page {
+    color: var(--primary_Color);
+    font-family: var(--font_family);
+    background-color: var(--bg_Color);
+    padding: 2rem;
+}
+
+/* Navigation/Header */
+.navigation-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+@media screen and (max-width: 768px) {
+
+    /* media query to remove display flex for mobile: */
+    .navigation-header {
+        display: block;
+    }
+
+
+    .intro-section {
+        width: unset !important;
+    }
+
+}
+
+.logo-container {
+    flex: 2;
+}
+
+.nav-container {
+    flex: 2;
+    text-align: center;
+}
+
+.navigation {
+    padding: 0.5rem 0rem;
+    border-radius: 1rem;
+}
+
+.theme-switch-button {
+    margin-top: 0.5rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--accent_Color);
+    color: #fff;
+    transition: background-color var(--transition);
+}
+
+.theme-switch-button:hover {
+    background-color: var(--accentHover_Color);
+}
+
+
+/*  TODO: REMOVE BELOW CSS BEFORE DOING FINAL DESIGNING > */
+.intro-section {
+    text-align: center;
+    width: 30%;
+    margin: 5% auto;
+}
+
+.logo-section {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}

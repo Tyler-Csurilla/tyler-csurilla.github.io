@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+        "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
+        "target": "ES2022",
+        "lib": ["ES2023"],
+        "module": "ESNext",
+        "skipLibCheck": true,
+        "moduleResolution": "bundler",
+        "allowImportingTsExtensions": true,
+        "isolatedModules": true,
+        "moduleDetection": "force",
+        "strict": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noFallthroughCasesInSwitch": true,
+        "noUncheckedSideEffectImports": true,
+        "composite": true,
+        "declaration": true,
+        "emitDeclarationOnly": true,  // ✅ Fix: Allows emit without generating JS
+        "outDir": "./node_modules/.tmp/node-types"
+    },
+    "include": ["vite.config.ts"]
+}

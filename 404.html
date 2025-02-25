@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <title>Redirecting...</title>
+        <script>
+            // Strip the path and redirect to the main app with the path as a hash to view the react 404 page
+            var path = window.location.pathname;
+            var redirectUrl = window.location.origin + window.location.pathname.replace(/\/[^/]*$/, '') + '/#' + path;
+            window.location.replace(redirectUrl);
+        </script>
+    </head>
+
+    <body>
+        Redirecting...
+    </body>
+
+</html>

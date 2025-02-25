@@ -1,0 +1,18 @@
+.logo-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.name-text {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 700;
+    font-size: 4em;
+    dominant-baseline: middle;
+    letter-spacing: normal;
+}
+
+.name-letter {
+    cursor: default;
+    transition: all 0.3s ease;
+}
