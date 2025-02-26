@@ -1,5 +1,6 @@
+import { motion } from "motion/react";
 import { Component, ErrorInfo, ReactNode } from "react";
-
+import "./errorBoundary.css";
 interface Props {
   children: ReactNode;
 }
@@ -25,12 +26,24 @@ class ErrorBoundary extends Component<Props, State> {
   public render() {
     if (this.state.hasError) {
       return (
-        <div style={{ padding: "20px", textAlign: "center", color: "red" }}>
-          <h1>Sorry.. there was an error</h1>
-          <h1 style={{ color: "black" }}>
-            To go home, click<a href="/"> here</a>
-          </h1>
-          <p>{this.state.error?.message}</p>
+        <div className="error-boundary">
+          <main id="main-content">
+            <motion.div
+              className="error-boundary-content"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <h1>Sorry.. there was an error</h1>
+              <p style={{ fontSize: "2rem" }}>{this.state.error?.message}</p>
+              <button
+                onClick={() => (window.location.href = "/")}
+                className="home-link"
+              >
+                Go Home
+              </button>
+            </motion.div>
+          </main>
         </div>
       );
     }
