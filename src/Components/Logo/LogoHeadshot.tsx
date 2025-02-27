@@ -48,13 +48,21 @@ const LogoHeadshot: React.FC<HeadshotLogoProps> = ({ width = 100 }) => {
         backgroundPositionX: {
           delay: loaded ? 0 : 1,
           duration: loaded ? 0.2 : 1,
+          type: "spring",
+          stiffness: 100,
+          damping: 5,
         },
         y: { delay: 1, duration: 1 },
       },
     },
     hover: {
       backgroundPositionX: "70%",
-      transition: { duration: 0.75 },
+      transition: {
+        duration: 0.75,
+        type: "spring",
+        stiffness: 120,
+        damping: 10,
+      },
     },
   };
 
@@ -67,11 +75,21 @@ const LogoHeadshot: React.FC<HeadshotLogoProps> = ({ width = 100 }) => {
       transition: {
         scale: { delay: 2, duration: 0.5 },
         opacity: { delay: 1.75, duration: 0.5 },
+        rotate: {
+          type: "spring",
+          stiffness: 200,
+          damping: 5,
+        },
       },
     },
     hover: {
       rotate: 5,
-      transition: { duration: 1 },
+      transition: {
+        duration: 1,
+        type: "spring",
+        stiffness: 450,
+        damping: 122,
+      },
     },
   };
 
