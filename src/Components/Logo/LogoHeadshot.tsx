@@ -20,7 +20,7 @@ const LogoHeadshot: React.FC<HeadshotLogoProps> = ({ width = 100 }) => {
       <path 
         d="M0,10 C12.5,0 37.5,20 50,10" 
         fill="none" 
-        stroke="${currentTheme.accent_Color}" 
+        stroke="${currentTheme.accent.dark4}" 
         stroke-width="1" />
     </svg>
   `;

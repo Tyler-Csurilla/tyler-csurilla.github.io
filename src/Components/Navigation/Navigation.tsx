@@ -1,7 +1,6 @@
 import { motion } from "motion/react";
 import { Link } from "react-router-dom";
 import { useTheme } from "../../utils/hooks/useTheme";
-import Logo from "../Logo/LogoText";
 import { themes } from "../ThemeProvider/ThemesData";
 import "./Navigation.css";
 
@@ -14,13 +13,10 @@ const Navigation: React.FC = () => {
       animate={{ y: 0, transition: { duration: 2, type: "spring" } }}
       className="landing-page__navigation-header"
     >
-      <div className="landing-page__logo-container">
-        <Logo />
-      </div>
       <div className="landing-page__nav-container">
         <nav
           className="landing-page__navigation"
-          style={{ backgroundColor: currentTheme.accent_Color }}
+          style={{ backgroundColor: currentTheme.background.dark2 }}
         >
           <Link className="navigation__link" to="/">
             Home

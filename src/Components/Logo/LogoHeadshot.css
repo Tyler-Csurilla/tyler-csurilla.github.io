@@ -6,7 +6,7 @@
     width: 11rem;
     height: 11rem;
     border-radius: 50%;
-    border: 2px solid var(--secondary_Color);
+    border: 2px solid var(--accent-dark3);
     background-repeat: repeat;
     overflow: visible;
 }
@@ -35,6 +35,26 @@
 .headshot-logo__halfcircle-border {
     width: 100%;
     height: 100%;
-    border-bottom: 3px solid var(--secondary_Color);
+    border-bottom: 3px solid var(--accent-dark2);
     border-radius: 0 0 50% 50%;
+}
+
+.logo-headshot {
+    color: var(--primary-base);
+    background-color: var(--background-base);
+    border-color: var(--accent-base);
+}
+
+.logo-headshot__inner {
+    background-color: var(--background-light1);
+    color: var(--primary-base);
+    border: 2px solid var(--accent-base);
+    box-shadow: 0 2px 8px var(--accent-dark2);
+    transition: all var(--transition);
+}
+
+.logo-headshot__inner:hover {
+    border-color: var(--accent-light1);
+    box-shadow: 0 4px 12px var(--accent-base);
+    transform: translateY(-2px);
 }

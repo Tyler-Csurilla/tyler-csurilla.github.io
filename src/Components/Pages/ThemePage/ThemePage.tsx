@@ -1,18 +1,14 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { Theme } from "../../../types/theme";
 import isColorLight from "../../../utils/calculation/isColorLight";
 import { useTheme } from "../../../utils/hooks/useTheme";
+import { generateColorScale } from "../../../utils/theme/generateColorScale";
+import { safeGetColorScale } from "../../../utils/theme/safeColorScale";
 import { defaultThemes } from "../../ThemeProvider/ThemesData";
 import "./ThemePage.css";
 
-interface CustomTheme {
-  title: string;
-  bg_Color: string;
-  primary_Color: string;
-  secondary_Color: string;
-  accent_Color: string;
-  accentHover_Color: string;
-  font_family: string;
-}
+interface CustomTheme extends Theme {}
 
 const validateColor = (color: string): boolean => {
   return /^#[0-9A-F]{6}$/i.test(color);
@@ -20,53 +16,103 @@ const validateColor = (color: string): boolean => {
 
 const ThemePage: React.FC = () => {
   const { currentTheme, addNewTheme, switchToThemeName } = useTheme();
+
+  // Define the color group keys explicitly for type safety
+  const colorGroupKeys = [
+    "background",
+    "primary",
+    "secondary",
+    "accent",
+  ] as const;
+
+  type ColorGroupKey = (typeof colorGroupKeys)[number];
+
+  // Define color groups with proper typing
+  const colorGroups = [
+    { label: "Background", key: "background" as ColorGroupKey },
+    { label: "Primary", key: "primary" as ColorGroupKey },
+    { label: "Secondary", key: "secondary" as ColorGroupKey },
+    { label: "Accent", key: "accent" as ColorGroupKey },
+  ];
+
+  // Initialize custom theme
   const [customTheme, setCustomTheme] = useState<CustomTheme>({
     title: "",
-    bg_Color: currentTheme.bg_Color ?? "",
-    primary_Color: currentTheme.primary_Color ?? "",
-    secondary_Color: currentTheme.secondary_Color ?? "",
-    accent_Color: currentTheme.accent_Color ?? "",
-    accentHover_Color: currentTheme.accentHover_Color ?? "",
-    font_family: currentTheme.font_family ?? "",
+    background: safeGetColorScale(currentTheme, "background"),
+    primary: safeGetColorScale(currentTheme, "primary"),
+    secondary: safeGetColorScale(currentTheme, "secondary"),
+    accent: safeGetColorScale(currentTheme, "accent"),
+    font_family: currentTheme?.font_family || '"Segoe UI", sans-serif',
   });
 
   const [errors, setErrors] = useState<
-    Partial<Record<keyof CustomTheme, string>>
+    Partial<Record<keyof CustomTheme | string, string>>
   >({});
 
-  const handleThemeChange = (prop: keyof CustomTheme, value: string) => {
-    setCustomTheme((prev) => ({ ...prev, [prop]: value }));
+  const handleBaseColorChange = (
+    colorGroup: keyof CustomTheme,
+    value: string
+  ) => {
+    if (!validateColor(value)) {
+      setErrors((prev) => ({ ...prev, [colorGroup]: "Invalid color format" }));
+      return;
+    }
+
+    setErrors((prev) => {
+      const newErrors = { ...prev };
+      delete newErrors[colorGroup];
+      return newErrors;
+    });
+
+    const colorScale = generateColorScale(value);
+
+    setCustomTheme((prev) => {
+      const updated = { ...prev };
+
+      // Update the color scale
+      if (
+        colorGroup === "background" ||
+        colorGroup === "primary" ||
+        colorGroup === "secondary" ||
+        colorGroup === "accent"
+      ) {
+        updated[colorGroup] = colorScale;
+      }
+
+      return updated;
+    });
+  };
+
+  const handleFontFamilyChange = (value: string) => {
+    setCustomTheme((prev) => ({ ...prev, font_family: value }));
+  };
+
+  const handleTitleChange = (value: string) => {
+    setCustomTheme((prev) => ({ ...prev, title: value }));
   };
 
   useEffect(() => {
+    // Safe update when theme changes
     setCustomTheme({
-      ...customTheme,
-      bg_Color: currentTheme.bg_Color ?? "",
-      primary_Color: currentTheme.primary_Color ?? "",
-      secondary_Color: currentTheme.secondary_Color ?? "",
-      accent_Color: currentTheme.accent_Color ?? "",
-      accentHover_Color: currentTheme.accentHover_Color ?? "",
-      font_family: currentTheme.font_family ?? "",
+      title: "",
+      background: safeGetColorScale(currentTheme, "background"),
+      primary: safeGetColorScale(currentTheme, "primary"),
+      secondary: safeGetColorScale(currentTheme, "secondary"),
+      accent: safeGetColorScale(currentTheme, "accent"),
+      font_family: currentTheme?.font_family || '"Segoe UI", sans-serif',
     });
   }, [currentTheme]);
 
   const validateTheme = (): boolean => {
-    const newErrors: Partial<Record<keyof CustomTheme, string>> = {};
+    const newErrors: Partial<Record<string, string>> = {};
 
     if (!customTheme.title.trim()) {
       newErrors.title = "Title is required";
     }
 
-    const colorKeys: (keyof CustomTheme)[] = [
-      "bg_Color",
-      "primary_Color",
-      "secondary_Color",
-      "accent_Color",
-      "accentHover_Color",
-    ];
-    colorKeys.forEach((key) => {
-      if (!validateColor(customTheme[key])) {
-        newErrors[key] = "Invalid color format";
+    colorGroupKeys.forEach((group) => {
+      if (!validateColor(customTheme[group].base)) {
+        newErrors[group] = "Invalid base color format";
       }
     });
 
@@ -95,92 +141,174 @@ const ThemePage: React.FC = () => {
     switchToThemeName(customTheme.title);
   };
 
-  const colorProps = [
-    { label: "Background", key: "bg_Color" },
-    { label: "Primary", key: "primary_Color" },
-    { label: "Secondary", key: "secondary_Color" },
-    { label: "Accent", key: "accent_Color" },
-    { label: "Accent Hover", key: "accentHover_Color" },
-  ];
-
   return (
     <div className="theme-page">
+      {/* Current Theme Display */}
+      <div className="theme-page__current-theme">
+        <h1 className="theme-page__current-theme-name">
+          <span style={{ textDecoration: "underline" }}>Selected</span>:{" "}
+          {currentTheme?.title || "Custom Theme"}
+        </h1>
+      </div>
+
+      {/* Color Swatches */}
       <div className="theme-page__swatches">
-        {colorProps.map(({ label, key }) => {
-          const colorValue = currentTheme[key as keyof typeof currentTheme];
-          const textColor = isColorLight(colorValue) ? "#000" : "#fff";
+        {colorGroups.map(({ label, key }) => {
+          const colorScale = safeGetColorScale(currentTheme, key);
+          const baseColor = colorScale.base;
+          const textColor = isColorLight(baseColor) ? "#000" : "#fff";
 
           return (
             <div
               key={key}
               className="theme-page__swatch"
-              style={{ backgroundColor: colorValue, color: textColor }}
+              style={{ backgroundColor: baseColor, color: textColor }}
             >
               <span>{label}</span>
             </div>
           );
         })}
       </div>
+
+      {/* Demo Link */}
+      <div className="theme-page__demo-link-wrapper">
+        <Link to="/theme/demo" className="theme-page__demo-link">
+          View Theme Demo
+        </Link>
+        <p className="theme-page__demo-description">
+          See how the current theme looks with different UI components
+        </p>
+      </div>
+
+      {/* Color Scales (Collapsible) */}
+      <details className="theme-page__color-scales-details">
+        <summary className="theme-page__color-scales-summary">
+          View Complete Color Scales (Click Here)
+        </summary>
+        <div className="theme-page__color-scales">
+          <div className="theme-page__scales-container">
+            {colorGroups.map(({ label, key }) => {
+              const colorScale = safeGetColorScale(currentTheme, key);
+              return (
+                <div key={key} className="theme-page__scale-group">
+                  <h4>{label}</h4>
+                  <div className="theme-page__scale">
+                    {Object.entries(colorScale).map(([variant, color]) => (
+                      <div
+                        key={variant}
+                        className="theme-page__scale-item"
+                        style={{
+                          backgroundColor: color,
+                          color: isColorLight(color) ? "#000" : "#fff",
+                        }}
+                      >
+                        {variant}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </details>
+
+      {/* Theme Customizer */}
       <div className="theme-page__customizer">
-        <h2 style={{ color: currentTheme.primary_Color }}>
-          Customize Your Theme
-        </h2>
-        <h2 style={{ color: currentTheme.primary_Color }}>
-          Current Selected Theme: {currentTheme.title}
-        </h2>
-        <div
-          className="theme-page__form"
-          style={{ color: currentTheme.primary_Color }}
-        >
-          <hr />
+        <h2 className="theme-page__section-title">Create Your Own Theme</h2>
+
+        <div className="theme-page__form">
           <div className="theme-page__input-group">
-            <h2>Theme Name:</h2>
+            <h2>Theme Name</h2>
             <input
               id="themeName"
               type="text"
+              placeholder="Enter a name for your theme"
               className="theme-page__theme-name-input"
               value={customTheme.title}
-              onChange={(e) => handleThemeChange("title", e.target.value)}
+              onChange={(e) => handleTitleChange(e.target.value)}
             />
             {errors.title && (
               <span className="theme-page__error">{errors.title}</span>
             )}
           </div>
-          {colorProps.map(({ label, key }) => (
-            <div key={key} className="theme-page__input-group">
-              <label htmlFor={key}>{label} Color:</label>
-              <div className="theme-page__color-input-wrapper">
-                <input
-                  id={key}
-                  type="color"
-                  value={customTheme[key as keyof CustomTheme]}
-                  onChange={(e) =>
-                    handleThemeChange(key as keyof CustomTheme, e.target.value)
-                  }
-                  className="theme-page__color-input"
-                />
-                <input
-                  type="text"
-                  value={customTheme[key as keyof CustomTheme]}
-                  onChange={(e) =>
-                    handleThemeChange(key as keyof CustomTheme, e.target.value)
-                  }
-                  className="theme-page__hex-input"
-                />
+
+          <hr />
+
+          {colorGroups.map(({ label, key }) => {
+            const colorScale = safeGetColorScale(customTheme, key);
+
+            return (
+              <div key={key} className="theme-page__input-group">
+                <label htmlFor={key}>{label} Base Color</label>
+                <div className="theme-page__color-input-wrapper">
+                  <input
+                    id={key}
+                    type="color"
+                    value={colorScale.base}
+                    onChange={(e) =>
+                      handleBaseColorChange(
+                        key as keyof CustomTheme,
+                        e.target.value
+                      )
+                    }
+                    className="theme-page__color-input"
+                  />
+                  <input
+                    type="text"
+                    value={colorScale.base}
+                    onChange={(e) =>
+                      handleBaseColorChange(
+                        key as keyof CustomTheme,
+                        e.target.value
+                      )
+                    }
+                    className="theme-page__hex-input"
+                  />
+                </div>
+                {errors[key] && (
+                  <span className="theme-page__error">{errors[key]}</span>
+                )}
+
+                {/* Preview of generated color scales */}
+                <div className="theme-page__generated-scales">
+                  {Object.entries(colorScale).map(([variant, color]) => {
+                    if (variant === "base") return null;
+                    return (
+                      <div
+                        key={variant}
+                        className="theme-page__scale-preview"
+                        style={{
+                          backgroundColor: color,
+                          color: isColorLight(color) ? "#000" : "#fff",
+                        }}
+                      >
+                        {variant}: {color}
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
-              {errors[key as keyof CustomTheme] && (
-                <span className="theme-page__error">
-                  {errors[key as keyof CustomTheme]}
-                </span>
-              )}
-            </div>
-          ))}
+            );
+          })}
+
+          <div className="theme-page__input-group">
+            <label htmlFor="font_family">Font Family</label>
+            <input
+              id="font_family"
+              type="text"
+              value={customTheme.font_family}
+              placeholder='e.g. "Inter", sans-serif'
+              onChange={(e) => handleFontFamilyChange(e.target.value)}
+              className="theme-page__theme-name-input"
+            />
+          </div>
         </div>
         <button
           className="theme-page__save-button"
           onClick={saveAndSwitchTheme}
         >
-          Save Custom Theme &amp; Switch to it
+          Save & Apply Theme
         </button>
       </div>
     </div>

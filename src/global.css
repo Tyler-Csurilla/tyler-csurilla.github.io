@@ -1,12 +1,61 @@
 :root {
-    /* Defaults, should be overridden by my theme system. */
-    --bg_Color: #f5f5f5;
-    --primary_Color: #333;
-    --secondary_Color: #555;
-    --accent_Color: #0077ff;
-    --accentHover_Color: #005bb5;
+    /* Font family */
     --font_family: "Segoe UI", Roboto, sans-serif;
+
+    /* Transition */
     --transition: 0.3s ease;
+
+    /* Color scales - Background */
+    --background-base: #f5f5f5;
+    --background-light1: #ffffff;
+    --background-light2: #ffffff;
+    --background-light3: #ffffff;
+    --background-light4: #ffffff;
+    --background-light5: #ffffff;
+    --background-dark1: #e0e0e0;
+    --background-dark2: #c0c0c0;
+    --background-dark3: #a0a0a0;
+    --background-dark4: #808080;
+    --background-dark5: #606060;
+
+    /* Color scales - Primary */
+    --primary-base: #333;
+    --primary-light1: #555;
+    --primary-light2: #777;
+    --primary-light3: #999;
+    --primary-light4: #bbb;
+    --primary-light5: #ddd;
+    --primary-dark1: #222;
+    --primary-dark2: #111;
+    --primary-dark3: #000;
+    --primary-dark4: #000;
+    --primary-dark5: #000;
+
+    /* Color scales - Secondary */
+    --secondary-base: #555;
+    --secondary-light1: #777;
+    --secondary-light2: #999;
+    --secondary-light3: #bbb;
+    --secondary-light4: #ddd;
+    --secondary-light5: #fff;
+    --secondary-dark1: #444;
+    --secondary-dark2: #333;
+    --secondary-dark3: #222;
+    --secondary-dark4: #111;
+    --secondary-dark5: #000;
+
+    /* Color scales - Accent */
+    --accent-base: #0077ff;
+    --accent-light1: #3399ff;
+    --accent-light2: #66bbff;
+    --accent-light3: #99ddff;
+    --accent-light4: #ccffff;
+    --accent-light5: #ffffff;
+    --accent-dark1: #005bb5;
+    --accent-dark2: #003f7a;
+    --accent-dark3: #002345;
+    --accent-dark4: #000a15;
+    --accent-dark5: #000000;
 }
 
 *,
@@ -21,8 +70,8 @@
 body {
     font-size: 16px;
     line-height: 1.5;
-    color: var(--primary_Color);
-    background-color: var(--bg_Color);
+    color: var(--primary-base);
+    background-color: var(--background-base);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeSpeed;
@@ -42,13 +91,13 @@ html {
 
 a {
     text-decoration: none;
-    color: var(--accent_Color);
+    color: var(--accent-base);
     transition: color var(--transition);
 }
 
 a:hover,
 a:focus {
-    color: var(--accentHover_Color);
+    color: var(--accent-dark1);
     opacity: 0.9;
 }
 
@@ -66,15 +115,15 @@ input[type="text"],
 input[type="submit"],
 input[type="button"] {
     border-radius: 4px;
-    border: 1px solid var(--accent_Color);
-    background-color: var(--bg_Color);
-    color: var(--primary_Color);
+    border: 1px solid var(--accent-base);
+    background-color: var(--background-base);
+    color: var(--primary-base);
     transition: border-color var(--transition);
 }
 
 button {
     cursor: pointer;
-    color: var(--primary_Color);
+    color: var(--primary-base);
 }
 
 p,

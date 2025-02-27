@@ -7,6 +7,7 @@ import { ThemeProvider } from "./Components/ThemeProvider/ThemeProvider.tsx";
 
 import { HashRouter, Route, Routes } from "react-router-dom";
 import AppLayout from "./Components/AppLayout/AppLayout.js";
+import ThemeDemo from "./Components/Pages/ThemePage/ThemeDemo/ThemeDemo.tsx";
 import ThemePage from "./Components/Pages/ThemePage/ThemePage.tsx";
 import "./global.css";
 
@@ -17,10 +18,12 @@ root.render(
     <HashRouter>
       <ThemeProvider>
         <Routes>
-          {/* App layout is handling JS errors and common elements between pages like footer and nav */}
           <Route path="/" element={<AppLayout />}>
             <Route index element={<LandingPage />} />
+
             <Route path="/theme" element={<ThemePage />} />
+            <Route path="/theme/demo" element={<ThemeDemo />} />
+
             <Route path="*" element={<NotFoundPage />} />
           </Route>
         </Routes>

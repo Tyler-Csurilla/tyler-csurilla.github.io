@@ -18,7 +18,6 @@ const LandingPage: React.FC = () => {
           <h2>[ Work in progress, not complete. ]</h2>
         </section>
       </motion.div>
-
       <motion.div
         className="landing-page__logo-section"
         initial={{ opacity: 0, y: -50, rotateX: -53 }}
