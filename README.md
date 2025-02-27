@@ -24,3 +24,4 @@
 - -- Picks a default theme based on preferred color scheme of the browser
 - -- Custom user theme editor ui
 - -- Theme choice is persisted in browser local storage (including user-made themes)
+- -- Generates 5 shades (light/dark) easily usable in the code for each main theme color field
