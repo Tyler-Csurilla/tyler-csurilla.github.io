@@ -1,27 +1,33 @@
 <div align="center">
 
-# [Tyler Csurilla's Portfolio Website](https://tyler-csurilla.github.io/)
+# [Tyler Csurilla's Portfolio](https://tyler-csurilla.github.io/)
 
-    I decided to make this site to test myself and showcase a bit of what I am able to do.
+**Hey!**  
+I decided to make this site to test myself and showcase a bit of what I am able to do.
+ 
 
-    Enjoy :)
-
-| [LinkedIn](https://www.linkedin.com/in/csurilla/) |
-[GitHub](https://github.com/Tyler-Csurilla) |
+[LinkedIn](https://www.linkedin.com/in/csurilla/) • [GitHub](https://github.com/Tyler-Csurilla)
 
 </div>
 
-## Current Stack
+---
 
-- **Frontend Libraries:** React, Motion
-- **Language:** JavaScript (TypeScript)
-- **Build:** Vite
+## Tech Stack
 
+- **Frontend Libraries:** React, Motion  
+- **Language:** JavaScript (TypeScript)  
+- **Build:** Vite  
+
+---
 
 ## Features
-- Satisfying original animations made using the Motion library
-- Custom theme system
-- -- Picks a default theme based on preferred color scheme of the browser
-- -- Custom user theme editor ui
-- -- Theme choice is persisted in browser local storage (including user-made themes)
-- -- Generates 5 shades (light/dark) easily usable in the code for each main theme color field
+
+- **Custom Animations**  
+  Powered by the Motion library for smooth detailed animation.
+- **Flexible Theme System**  
+  - Automatically picks a default theme based on your browser’s preferred color scheme.  
+  - Includes a cool theme editor UI if you’re feeling creative.  
+  - Remembers your chosen or custom-made themes via local storage.  
+  - Dynamically generates five light/dark shades for each main theme color.  
+
+Feel free to fork this, I would appreciate a credit though.
