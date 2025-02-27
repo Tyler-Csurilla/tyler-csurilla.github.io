@@ -2,7 +2,6 @@
 
 # [Tyler Csurilla's Portfolio](https://tyler-csurilla.github.io/)
 
-**Hey!**  
 I decided to make this site to test myself and showcase a bit of what I am able to do.
  
 
