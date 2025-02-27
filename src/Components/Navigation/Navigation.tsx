@@ -29,6 +29,13 @@ const Navigation: React.FC = () => {
           <Link className="navigation__link" to="/theme">
             Theme
           </Link>
+          <span className="navigation__separator">|</span>
+          <Link
+            className="navigation__link"
+            to="https://github.com/Tyler-Csurilla/tyler-csurilla.github.io"
+          >
+            Repo
+          </Link>
         </nav>
         <button
           className="landing-page__theme-switch-button"
