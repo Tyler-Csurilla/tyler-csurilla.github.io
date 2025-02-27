@@ -1,4 +1,4 @@
-.headshot-logo-container {
+.headshot-logo__container {
     position: relative;
     display: flex;
     justify-content: center;
@@ -11,7 +11,7 @@
     overflow: visible;
 }
 
-.headshot-image {
+.headshot-logo__image {
     width: 100%;
     height: 100%;
     border-radius: 50%;
@@ -20,7 +20,7 @@
     position: relative;
 }
 
-.headshot-halfcircle-border-wrapper {
+.headshot-logo__halfcircle-border-wrapper {
     position: absolute;
     top: 11%;
     left: -10;
@@ -30,10 +30,9 @@
     z-index: 3;
     text-align: center;
     pointer-events: none !important;
-
 }
 
-.headshot-halfcircle-border {
+.headshot-logo__halfcircle-border {
     width: 100%;
     height: 100%;
     border-bottom: 3px solid var(--secondary_Color);

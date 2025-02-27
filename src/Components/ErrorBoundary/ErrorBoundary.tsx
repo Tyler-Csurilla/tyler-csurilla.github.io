@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import { Component, ErrorInfo, ReactNode } from "react";
-import "./errorBoundary.css";
+import "./ErrorBoundary.css";
+
 interface Props {
   children: ReactNode;
 }
@@ -27,18 +28,22 @@ class ErrorBoundary extends Component<Props, State> {
     if (this.state.hasError) {
       return (
         <div className="error-boundary">
-          <main id="main-content">
+          <main className="app-layout__main-content">
             <motion.div
-              className="error-boundary-content"
+              className="error-boundary__content"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <h1>Sorry.. there was an error</h1>
-              <p style={{ fontSize: "2rem" }}>{this.state.error?.message}</p>
+              <h1 className="error-boundary__title">
+                Sorry.. there was an error
+              </h1>
+              <p className="error-boundary__text" style={{ fontSize: "2rem" }}>
+                {this.state.error?.message}
+              </p>
               <button
                 onClick={() => (window.location.href = "/")}
-                className="home-link"
+                className="error-boundary__home-link"
               >
                 Go Home
               </button>

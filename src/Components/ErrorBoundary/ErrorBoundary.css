@@ -7,27 +7,27 @@
     color: var(--primary_Color);
 }
 
-.error-boundary-content {
+.error-boundary__content {
     padding: 2rem;
 }
 
-.error-boundary h1 {
+.error-boundary__title {
     font-size: 6rem;
     margin-bottom: 1rem;
     color: var(--accent_Color);
 }
 
-.error-boundary h2 {
+.error-boundary__subtitle {
     font-size: 2rem;
     margin-bottom: 1rem;
 }
 
-.error-boundary p {
+.error-boundary__text {
     margin-bottom: 2rem;
     color: var(--secondary_Color);
 }
 
-.home-link {
+.error-boundary__home-link {
     display: inline-block;
     padding: 0.8rem 1.5rem;
     background-color: var(--accent_Color);
@@ -37,7 +37,7 @@
     transition: background-color var(--transition);
 }
 
-.home-link:hover {
+.error-boundary__home-link:hover {
     background-color: var(--accentHover_Color);
     color: var(--bg_Color);
 }

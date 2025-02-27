@@ -2,14 +2,14 @@ import { Outlet } from "react-router-dom";
 import ErrorBoundary from "../ErrorBoundary/ErrorBoundary";
 import { Footer } from "../Footer/Footer";
 import Navigation from "../Navigation/Navigation";
-import "./appLayout.css";
+import "./AppLayout.css";
 
 const AppLayout: React.FC = () => {
   return (
-    <div id="app-layout">
+    <div className="app-layout">
       <ErrorBoundary>
         <Navigation />
-        <main id="main-content">
+        <main className="app-layout__main-content">
           <Outlet />
         </main>
         <Footer />

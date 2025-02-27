@@ -1,4 +1,4 @@
-.themePage {
+.theme-page {
     color: #fff;
     padding: 2rem;
     display: flex;
@@ -7,57 +7,57 @@
     text-align: center;
 }
 
-.error {
+.theme-page__error {
     color: #ff0033;
     font-size: 1.5rem;
     font-weight: 500;
 }
 
-.swatches {
+.theme-page__swatches {
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-.swatch {
+.theme-page__swatch {
     padding: 0.5rem 1rem;
     border-radius: 4px;
     box-shadow: 0 0rem 0.5rem rgb(255, 255, 255);
     transition: opacity 0.2s ease;
 }
 
-.swatch:hover {
+.theme-page__swatch:hover {
     opacity: 0.8;
     box-shadow: 0 0rem 0rem rgb(255, 255, 255);
 }
 
-.customizer {
+.theme-page__customizer {
     display: flex;
     flex-direction: column;
     gap: 1rem;
 }
 
-.form {
+.theme-page__form {
     display: flex;
     flex-direction: column;
     gap: 1rem;
 }
 
-.inputGroup {
+.theme-page__input-group {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
     margin: 0 auto;
 }
 
-.colorInputWrapper {
+.theme-page__color-input-wrapper {
     display: flex;
     align-items: center;
     gap: 0.5rem;
 }
 
-.colorInput {
+.theme-page__color-input {
     width: 60px;
     height: 40px;
     border: 1px solid #444;
@@ -65,7 +65,7 @@
     background-color: transparent;
 }
 
-.themeNameInput {
+.theme-page__theme-name-input {
     width: 100%;
     padding: 0.5rem;
     border-radius: 4px;
@@ -74,7 +74,7 @@
     color: #fff;
 }
 
-.hexInput {
+.theme-page__hex-input {
     width: fit-content;
     padding: 0.5rem;
     border-radius: 4px;
@@ -83,7 +83,7 @@
     color: #fff;
 }
 
-.saveButton {
+.theme-page__save-button {
     padding: 0.75rem 1.5rem;
     background-color: #0077ff;
     color: #fff;

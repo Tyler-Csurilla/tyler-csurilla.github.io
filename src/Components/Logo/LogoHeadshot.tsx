@@ -2,17 +2,16 @@ import { motion } from "motion/react";
 import React, { useState } from "react";
 import headshot from "../../Assets/headshot_no_bg.png";
 import { useTheme } from "../../utils/hooks/useTheme";
-import "./headshotlogo.css";
+import "./LogoHeadshot.css";
 
 interface HeadshotLogoProps {
   width?: number;
 }
 
-const HeadshotLogo: React.FC<HeadshotLogoProps> = ({ width = 100 }) => {
+const LogoHeadshot: React.FC<HeadshotLogoProps> = ({ width = 100 }) => {
   const { currentTheme } = useTheme();
   const [loaded, setLoaded] = useState(false);
 
-  // Same wave background as before
   const waveSVG = `
     <svg 
       xmlns="http://www.w3.org/2000/svg" 
@@ -28,7 +27,6 @@ const HeadshotLogo: React.FC<HeadshotLogoProps> = ({ width = 100 }) => {
   const encodedWaveSVG = encodeURIComponent(waveSVG); // Encode the SVG for use in URL
   const backgroundImage = `url("data:image/svg+xml,${encodedWaveSVG}")`;
 
-  // Container (outer circle) animation
   const containerVariants = {
     initial: {
       scale: 1.3,
@@ -60,7 +58,6 @@ const HeadshotLogo: React.FC<HeadshotLogoProps> = ({ width = 100 }) => {
     },
   };
 
-  // Headshot image animation
   const imageVariants = {
     initial: { scale: 1, opacity: 0, rotate: 0 },
     animate: {
@@ -88,7 +85,7 @@ const HeadshotLogo: React.FC<HeadshotLogoProps> = ({ width = 100 }) => {
 
   return (
     <motion.div
-      className="headshot-logo-container"
+      className="headshot-logo__container"
       style={{ backgroundImage }}
       variants={containerVariants}
       initial="initial"
@@ -96,9 +93,8 @@ const HeadshotLogo: React.FC<HeadshotLogoProps> = ({ width = 100 }) => {
       whileHover="hover"
       onAnimationComplete={() => setLoaded(true)}
     >
-      {/* The circular headshot on top */}
       <motion.img
-        className="headshot-image"
+        className="headshot-logo__image"
         variants={imageVariants}
         initial="initial"
         animate="animate"
@@ -107,21 +103,16 @@ const HeadshotLogo: React.FC<HeadshotLogoProps> = ({ width = 100 }) => {
         alt="Profile headshot"
         width={width}
       />
-
-      {/* 
-        The bottom half-circle border is absolutely positioned in the bottom half
-        of the container. I'm animation the clip-path so it reveals from center outward.
-      */}
       <motion.div
-        className="headshot-halfcircle-border-wrapper"
+        className="headshot-logo__halfcircle-border-wrapper"
         variants={clipVariants}
         initial="initial"
         animate="animate"
       >
-        <div className="headshot-halfcircle-border" />
+        <div className="headshot-logo__halfcircle-border" />
       </motion.div>
     </motion.div>
   );
 };
 
-export default HeadshotLogo;
+export default LogoHeadshot;

@@ -1,4 +1,4 @@
-.not-found {
+.not-found-page {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -7,27 +7,27 @@
     color: var(--primary_Color);
 }
 
-.not-found-content {
+.not-found-page__content {
     padding: 2rem;
 }
 
-.not-found h1 {
+.not-found-page__title {
     font-size: 6rem;
     margin-bottom: 1rem;
     color: var(--accent_Color);
 }
 
-.not-found h2 {
+.not-found-page__subtitle {
     font-size: 2rem;
     margin-bottom: 1rem;
 }
 
-.not-found p {
+.not-found-page__text {
     margin-bottom: 2rem;
     color: var(--secondary_Color);
 }
 
-.home-link {
+.not-found-page__home-link {
     display: inline-block;
     padding: 0.8rem 1.5rem;
     background-color: var(--accent_Color);
@@ -37,7 +37,7 @@
     transition: background-color var(--transition);
 }
 
-.home-link:hover {
+.not-found-page__home-link:hover {
     background-color: var(--accentHover_Color);
     color: var(--bg_Color);
 }
