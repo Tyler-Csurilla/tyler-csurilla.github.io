@@ -16,3 +16,11 @@
 - **Frontend Libraries:** React, Motion
 - **Language:** JavaScript (TypeScript)
 - **Build:** Vite
+
+
+## Features
+- Satisfying original animations made using the Motion library
+- Custom theme system
+- -- Picks a default theme based on preferred color scheme of the browser
+- -- Custom user theme editor ui
+- -- Theme choice is persisted in browser local storage (including user-made themes)
