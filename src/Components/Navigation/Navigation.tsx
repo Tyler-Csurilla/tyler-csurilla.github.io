@@ -16,7 +16,9 @@ const Navigation: React.FC = () => {
       <div className="landing-page__nav-container">
         <nav
           className="landing-page__navigation"
-          style={{ backgroundColor: currentTheme.background.dark2 }}
+          style={{
+            backgroundColor: currentTheme.background.dark1,
+          }}
         >
           <Link className="navigation__link" to="/">
             Home

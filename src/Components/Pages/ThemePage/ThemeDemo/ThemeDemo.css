@@ -2,7 +2,7 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
-    background-color: var(--background-base);
+    background-color: var(--background-light2);
     color: var(--primary-base);
     border-radius: 8px;
 }
