@@ -73,8 +73,8 @@ const LogoHeadshot: React.FC<HeadshotLogoProps> = ({ width = 100 }) => {
       opacity: 1,
       rotate: 0,
       transition: {
-        scale: { delay: 2, duration: 0.5 },
-        opacity: { delay: 1.75, duration: 0.5 },
+        scale: { delay: 1.3, duration: 1 },
+        opacity: { delay: 1, duration: 0.5 },
         rotate: {
           type: "spring",
           stiffness: 200,
@@ -97,7 +97,7 @@ const LogoHeadshot: React.FC<HeadshotLogoProps> = ({ width = 100 }) => {
     initial: { clipPath: "polygon(50% 0, 50% 0, 50% 100%, 50% 100%)" },
     animate: {
       clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
-      transition: { delay: 2, duration: 0.8 },
+      transition: { delay: 1.5, duration: 0.8 },
     },
   };
 
@@ -119,7 +119,6 @@ const LogoHeadshot: React.FC<HeadshotLogoProps> = ({ width = 100 }) => {
         whileHover="hover"
         src={headshot}
         alt="Profile headshot"
-        width={width}
       />
       <motion.div
         className="headshot-logo__halfcircle-border-wrapper"

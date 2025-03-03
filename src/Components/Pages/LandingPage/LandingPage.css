@@ -1,8 +1,3 @@
-.landing-page__navigation-header {
-    display: flex;
-    margin-bottom: 2rem;
-}
-
 .landing-page__nav-container {
     flex: 2;
     text-align: center;
@@ -26,14 +21,6 @@
     background-color: var(--accent-dark2);
 }
 
-.landing-page__intro-section {
-    text-align: center;
-    width: 30%;
-    margin: 5% auto;
-}
-
-.landing-page__logo-section {
-    display: flex;
-    justify-content: center;
-    margin-top: 2rem;
+.landing-page {
+    padding: 2rem 1rem;
 }

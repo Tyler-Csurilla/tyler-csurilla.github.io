@@ -5,6 +5,7 @@ import {
   ThemeContextValue,
   ThemeName,
 } from "../../types/theme";
+import isColorLight from "../../utils/calculation/isColorLight";
 import { generateColorScale } from "../../utils/theme/generateColorScale";
 import { themes } from "./ThemesData";
 
@@ -21,6 +22,7 @@ export const ThemeContext = createContext<ThemeContextValue>({
   switchToNextTheme: () => {},
   switchToThemeName: () => {},
   addNewTheme: () => {},
+  themeIsLight: false,
 });
 
 const randomHex = () =>
@@ -189,6 +191,8 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
     return <div>Error: {error}</div>;
   }
 
+  const themeIsLight = isColorLight(themes[themeName].background.base);
+
   return (
     <ThemeContext.Provider
       value={{
@@ -199,6 +203,7 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
         switchToNextTheme,
         switchToThemeName,
         addNewTheme,
+        themeIsLight: themeIsLight,
       }}
     >
       {children}

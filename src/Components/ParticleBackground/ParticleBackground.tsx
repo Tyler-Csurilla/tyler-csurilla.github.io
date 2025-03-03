@@ -118,8 +118,19 @@ interface ParticlesBackgroundProps {
 
 const ParticlesBackground: React.FC<ParticlesBackgroundProps> = () => {
   const numberOfParticles = 30;
-  const parallaxFactor = 0.2;
-  const speed = 0.2;
+  let parallaxFactor = 0.2;
+  let speed = 0.2;
+
+  // If the user's browser prefers less motion, lower speed
+  const prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
+  const reducedSpeed = 0.05;
+
+  if (prefersReducedMotion) {
+    speed = reducedSpeed;
+    parallaxFactor = 0;
+  }
 
   const { currentTheme } = useTheme();
   const canvasRef = useRef<HTMLCanvasElement | null>(null);

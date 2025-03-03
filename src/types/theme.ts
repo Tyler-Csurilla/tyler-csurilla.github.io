@@ -36,4 +36,5 @@ export interface ThemeContextValue {
   availableThemes: ThemeName[];
   switchToThemeName: (newThemeName: ThemeName) => void;
   addNewTheme: (newThemeName: ThemeName, newTheme: Theme) => void;
+  themeIsLight: boolean;
 }

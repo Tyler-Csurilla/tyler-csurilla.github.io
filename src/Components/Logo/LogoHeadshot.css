@@ -3,10 +3,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 11rem;
-    height: 11rem;
+    width: 8rem;
     border-radius: 50%;
     border: 2px solid var(--accent-dark3);
+    clip-path: ellipse(67.5% 78.1% at 50% 31%);
     background-repeat: repeat;
     overflow: visible;
 }
@@ -17,6 +17,7 @@
     border-radius: 50%;
     display: block;
     z-index: 2;
+    filter: drop-shadow(0 2px 8px var(--background-dark5));
     position: relative;
 }
 

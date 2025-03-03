@@ -1,6 +1,6 @@
 import { ColorScale } from "../../types/theme";
 
-function hexToRgb(hex: string) {
+export function hexToRgb(hex: string) {
   hex = hex.replace(/^#/, "");
   if (hex.length === 3) {
     hex = hex
@@ -17,7 +17,7 @@ function hexToRgb(hex: string) {
 }
 
 // Convert RGB values to HSL.
-function rgbToHsl({ r, g, b }: { r: number; g: number; b: number }) {
+export function rgbToHsl({ r, g, b }: { r: number; g: number; b: number }) {
   r /= 255;
   g /= 255;
   b /= 255;
@@ -47,7 +47,7 @@ function rgbToHsl({ r, g, b }: { r: number; g: number; b: number }) {
 }
 
 // Convert HSL values back to a hex string.
-function hslToHex(h: number, s: number, l: number): string {
+export function hslToHex(h: number, s: number, l: number): string {
   let r: number, g: number, b: number;
 
   if (s === 0) {
