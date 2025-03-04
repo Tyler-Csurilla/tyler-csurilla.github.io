@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import React, { useState } from "react";
 import headshot from "../../Assets/headshot_no_bg.png";
+import isColorLight from "../../utils/calculation/isColorLight";
 import { useTheme } from "../../utils/hooks/useTheme";
 import "./LogoHeadshot.css";
 
@@ -8,9 +9,15 @@ interface HeadshotLogoProps {
   width?: number;
 }
 
-const LogoHeadshot: React.FC<HeadshotLogoProps> = ({ width = 100 }) => {
+const LogoHeadshot: React.FC<HeadshotLogoProps> = () => {
   const { currentTheme } = useTheme();
   const [loaded, setLoaded] = useState(false);
+
+  let isBackgroundLight = isColorLight(currentTheme.background.base);
+
+  const strokeColor = isBackgroundLight
+    ? currentTheme.background.dark3
+    : currentTheme.background.light3;
 
   const waveSVG = `
     <svg 
@@ -20,7 +27,7 @@ const LogoHeadshot: React.FC<HeadshotLogoProps> = ({ width = 100 }) => {
       <path 
         d="M0,10 C12.5,0 37.5,20 50,10" 
         fill="none" 
-        stroke="${currentTheme.accent.dark4}" 
+        stroke="${strokeColor}" 
         stroke-width="1" />
     </svg>
   `;
@@ -33,14 +40,12 @@ const LogoHeadshot: React.FC<HeadshotLogoProps> = ({ width = 100 }) => {
       opacity: 0,
       backgroundSize: "33%",
       backgroundPositionX: "0%",
-      y: -50,
     },
     animate: {
       scale: 1,
       opacity: 1,
       backgroundSize: "36%",
       backgroundPositionX: "50%",
-      y: 0,
       transition: {
         scale: { delay: 1, duration: 1 },
         opacity: { delay: 1, duration: 1 },
@@ -52,7 +57,6 @@ const LogoHeadshot: React.FC<HeadshotLogoProps> = ({ width = 100 }) => {
           stiffness: 100,
           damping: 5,
         },
-        y: { delay: 1, duration: 1 },
       },
     },
     hover: {
@@ -74,7 +78,7 @@ const LogoHeadshot: React.FC<HeadshotLogoProps> = ({ width = 100 }) => {
       rotate: 0,
       transition: {
         scale: { delay: 1.3, duration: 1 },
-        opacity: { delay: 1, duration: 0.5 },
+        opacity: { delay: 1, duration: 1 },
         rotate: {
           type: "spring",
           stiffness: 200,
