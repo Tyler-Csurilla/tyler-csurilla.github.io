@@ -13,11 +13,13 @@ I decided to make this site to test myself and showcase a bit of what I am able 
 
 ## Tech Stack
 
+- **Not using any third-party components or designs, all designs (css/markup) and component code are developed by me.**
+
 - **Frontend Libraries:** React, Motion  
 - **Language:** JavaScript (TypeScript)  
 - **Build:** Vite
 
-- Not using any third-party components or designs, all designs (css/markup) are done by me for practice.
+
 
 ---
 
