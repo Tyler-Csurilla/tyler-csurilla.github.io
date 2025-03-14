@@ -9,8 +9,8 @@ const AppLayout: React.FC = () => {
   return (
     <div className="app-layout">
       <ErrorBoundary>
-        <Navigation />
         <ParticlesBackground />
+        <Navigation />
         <main className="app-layout__main-content">
           <Outlet />
         </main>

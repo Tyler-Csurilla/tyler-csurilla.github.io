@@ -2,14 +2,14 @@ export interface ColorScale {
   // Base color
   base: string;
 
-  // Light variations - getting progressively lighter
+  // Light variations - gets progressively lighter
   light1: string;
   light2: string;
   light3: string;
   light4: string;
   light5: string;
 
-  // Dark variations - getting progressively darker
+  // Dark variations - gets progressively darker
   dark1: string;
   dark2: string;
   dark3: string;
@@ -26,7 +26,17 @@ export interface Theme {
   font_family: string;
 }
 
-export type ThemeName = string;
+export type ThemeName =
+  | "light"
+  | "dark"
+  | "desert_bloom"
+  | "forest_edge"
+  | "sunset_lounge"
+  | "midnight_jazz"
+  | "candy_pop"
+  | "soothing_sage"
+  | "random"
+  | string; // Allow for custom theme names too
 
 export interface ThemeContextValue {
   currentTheme: Theme;

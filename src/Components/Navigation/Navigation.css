@@ -1,9 +1,111 @@
-.navigation__link {
+.navigation-header {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    width: 100%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navigation-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0.75rem 1.5rem;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+}
+
+.nav-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    margin-right: 0.75rem;
+}
+
+.nav-logo-text {
+    color: var(--text-light);
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+/* Center: navigation links */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: var(--text-light);
     text-decoration: none;
-    padding: 10px;
-    margin: 0 2rem;
-    font-size: 1.2rem;
     font-weight: 500;
-    transition: all 0.3s ease;
-    color: var(--primary-base);
+    padding: 0.5rem 0.25rem;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.nav-links a:hover {
+    color: var(--accent-base);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-base);
+    transition: width 0.2s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Right side: theme switcher */
+.nav-right {
+    display: flex;
+    align-items: center;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .navigation-content {
+        flex-direction: column;
+        padding: 0.75rem 1rem;
+    }
+
+    .nav-top-row {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.75rem;
+    }
+
+    .nav-left,
+    .nav-right {
+        justify-content: center;
+        position: static;
+    }
+
+    .nav-links {
+        width: 100%;
+        justify-content: center;
+        gap: 1.5rem;
+    }
+
+    .theme-switcher-container {
+        position: fixed;
+        right: 0.25rem;
+        top: 0.25rem;
+        transform: none !important
+    }
+
 }

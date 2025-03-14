@@ -1,46 +1,44 @@
-import { motion } from "motion/react";
+import { motion } from "motion/react"; // or 'framer-motion'
+import React from "react";
 import { Link } from "react-router-dom";
 import { useTheme } from "../../utils/hooks/useTheme";
-import { themes } from "../ThemeProvider/ThemesData";
+import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
 import "./Navigation.css";
 
 const Navigation: React.FC = () => {
-  const { switchToNextTheme, currentTheme, nextThemeName } = useTheme();
+  const { currentTheme } = useTheme();
 
   return (
     <motion.header
-      initial={{ y: -233 }}
-      animate={{ y: 0, transition: { duration: 2, type: "spring" } }}
-      className="landing-page__navigation-header"
+      className="navigation-header"
+      style={{ backgroundColor: currentTheme.background.dark1 }}
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
     >
-      <div className="landing-page__nav-container">
-        <nav
-          className="landing-page__navigation"
-          style={{
-            backgroundColor: currentTheme.background.dark1,
-          }}
-        >
-          <Link className="navigation__link" to="/">
-            Home
-          </Link>
-          <span className="navigation__separator">|</span>
-          <Link className="navigation__link" to="/theme">
-            Theme
-          </Link>
-          <span className="navigation__separator">|</span>
-          <Link
-            className="navigation__link"
-            to="https://github.com/Tyler-Csurilla/tyler-csurilla.github.io"
+      <div className="navigation-content">
+        {/* Left side: avatar + "My Portfolio" */}
+        <div className="nav-left">
+          <span className="nav-logo-text">Tyler Csurilla</span>
+        </div>
+
+        {/* Center: nav links */}
+        <nav className="nav-links">
+          <Link to="/">Home</Link>
+          <Link to="/theme">Theme</Link>
+          <a
+            href="https://github.com/Tyler-Csurilla/tyler-csurilla.github.io"
+            target="_blank"
+            rel="noreferrer"
           >
             Repo
-          </Link>
+          </a>
         </nav>
-        <button
-          className="landing-page__theme-switch-button"
-          onClick={switchToNextTheme}
-        >
-          Switch to {themes[nextThemeName]?.title}
-        </button>
+
+        {/* Right side: theme switcher */}
+        <div className="nav-right">
+          <ThemeSwitcher />
+        </div>
       </div>
     </motion.header>
   );

@@ -37,7 +37,7 @@ export const defaultThemes: Record<ThemeName, Theme> = {
     "#9F7AEA",
     '"Roboto", sans-serif'
   ),
-  desertBloom: createTheme(
+  desert_bloom: createTheme(
     "Desert Bloom 🌵",
     "#F1EFE3",
     "#5B3A24",
@@ -45,7 +45,7 @@ export const defaultThemes: Record<ThemeName, Theme> = {
     "#D89C6B",
     '"Source Sans Pro", sans-serif'
   ),
-  forestEdge: createTheme(
+  forest_edge: createTheme(
     "Forest Edge 🌲",
     "#F6FBEF",
     "#2F4A3C",
@@ -53,7 +53,7 @@ export const defaultThemes: Record<ThemeName, Theme> = {
     "#92B4A7",
     '"Merriweather", serif'
   ),
-  sunsetLounge: createTheme(
+  sunset_lounge: createTheme(
     "Sunset Lounge 🌅",
     "#FFEDD5",
     "#2F2F2F",
@@ -61,7 +61,7 @@ export const defaultThemes: Record<ThemeName, Theme> = {
     "#C18E60",
     '"Playfair Display", serif'
   ),
-  midnightJazz: createTheme(
+  midnight_jazz: createTheme(
     "Midnight Jazz 🎷",
     "#101828",
     "#E5E5E5",
@@ -69,7 +69,7 @@ export const defaultThemes: Record<ThemeName, Theme> = {
     "#845EC2",
     '"Roboto", sans-serif'
   ),
-  candyPop: createTheme(
+  candy_pop: createTheme(
     "Candy Pop 🍭",
     "#FFF0F5",
     "#D94086",
@@ -77,7 +77,7 @@ export const defaultThemes: Record<ThemeName, Theme> = {
     "#FDBEFB",
     '"Nunito", sans-serif'
   ),
-  soothingSage: createTheme(
+  soothing_sage: createTheme(
     "Soothing Sage 🌿",
     "#F8F8F5",
     "#445D52",
