@@ -6,4 +6,14 @@
 
 .app-layout__main-content {
     flex: 1;
+    margin-inline: auto;
+    border-radius: 2rem;
+    padding-top: 2rem;
+    padding-inline: 5rem;
+
+
+
+
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }

@@ -47,8 +47,8 @@ const LogoHeadshot: React.FC<HeadshotLogoProps> = () => {
       backgroundSize: "36%",
       backgroundPositionX: "50%",
       transition: {
-        scale: { delay: 1, duration: 1 },
-        opacity: { delay: 1, duration: 1 },
+        scale: { delay: 0.1, duration: 1 },
+        opacity: { delay: 0.1, duration: 1 },
         backgroundSize: { delay: 1, duration: 1 },
         backgroundPositionX: {
           delay: loaded ? 0 : 1,
@@ -77,8 +77,8 @@ const LogoHeadshot: React.FC<HeadshotLogoProps> = () => {
       opacity: 1,
       rotate: 0,
       transition: {
-        scale: { delay: 1.3, duration: 1 },
-        opacity: { delay: 1, duration: 1 },
+        scale: { delay: 0.3, duration: 1 },
+        opacity: { delay: 0.5, duration: 1 },
         rotate: {
           type: "spring",
           stiffness: 200,

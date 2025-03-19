@@ -80,7 +80,7 @@ const ThemeSwitcher: React.FC = () => {
             themeIsLight ? "Switch to dark theme" : "Switch to light theme"
           }
         >
-          {themeIsLight ? <SunIcon /> : <MoonIcon />}
+          {!themeIsLight ? <SunIcon /> : <MoonIcon />}
         </button>
 
         {/* Next Theme Button */}
