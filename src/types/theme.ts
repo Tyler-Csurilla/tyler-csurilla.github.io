@@ -26,25 +26,14 @@ export interface Theme {
   font_family: string;
 }
 
-export type ThemeName =
-  | "light"
-  | "dark"
-  | "desert_bloom"
-  | "forest_edge"
-  | "sunset_lounge"
-  | "midnight_jazz"
-  | "candy_pop"
-  | "soothing_sage"
-  | "random"
-  | string; // Allow for custom theme names too
-
 export interface ThemeContextValue {
   currentTheme: Theme;
-  nextThemeName: ThemeName;
-  themeName: ThemeName;
+  nextThemeName: string;
+  themeName: string;
   switchToNextTheme: () => void;
-  availableThemes: ThemeName[];
-  switchToThemeName: (newThemeName: ThemeName) => void;
-  addNewTheme: (newThemeName: ThemeName, newTheme: Theme) => void;
+  availableThemes: string[];
+  switchToThemeName: (newThemeName: string) => void;
+  addNewTheme: (newThemeName: string, newTheme: Theme) => void;
   themeIsLight: boolean;
+  getTheme: (name: string) => Theme | undefined;
 }

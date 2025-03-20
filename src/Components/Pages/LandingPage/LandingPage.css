@@ -3,3 +3,11 @@
     width: 100%;
     color: var(--primary-base);
 }
+
+
+.landing-page__header {
+    display: flex;
+    gap: 1rem;
+    padding: 2rem;
+    align-items: center;
+}

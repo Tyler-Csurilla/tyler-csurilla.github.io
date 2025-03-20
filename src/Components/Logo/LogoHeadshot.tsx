@@ -16,8 +16,8 @@ const LogoHeadshot: React.FC<HeadshotLogoProps> = () => {
   let isBackgroundLight = isColorLight(currentTheme.background.base);
 
   const strokeColor = isBackgroundLight
-    ? currentTheme.background.dark3
-    : currentTheme.background.light3;
+    ? currentTheme.background.dark1
+    : currentTheme.background.light1;
 
   const waveSVG = `
     <svg 
@@ -130,7 +130,17 @@ const LogoHeadshot: React.FC<HeadshotLogoProps> = () => {
         initial="initial"
         animate="animate"
       >
-        <div className="headshot-logo__halfcircle-border" />
+        <div
+          className="headshot-logo__halfcircle-border"
+          style={{
+            borderBottom:
+              "0.3rem solid rgb(from " +
+              (isColorLight(currentTheme.background.base)
+                ? currentTheme.accent.dark1
+                : currentTheme.accent.light1) +
+              " r g b / 50%)",
+          }}
+        />
       </motion.div>
     </motion.div>
   );

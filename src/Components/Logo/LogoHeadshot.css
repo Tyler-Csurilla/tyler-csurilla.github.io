@@ -36,7 +36,6 @@
 .headshot-logo__halfcircle-border {
     width: 100%;
     height: 100%;
-    border-bottom: 3px solid var(--accent-dark2);
     border-radius: 0 0 50% 50%;
 }
 

@@ -19,13 +19,11 @@ const AppLayout: React.FC = () => {
           className="app-layout__main-content"
           style={{
             boxShadow: isColorLight(currentTheme.background.base)
-              ? "0 0 10px 0 rgb(from var(--background-dark4) r g b / 50%)"
-              : "0 0 10px 0 rgb(from var(--background-light4) r g b / 50%)",
-
-            // backgroundColor: background: rgb(from var(--background-dark4) r g b / 40%);
+              ? "0 0 10px 0 rgb(from var(--background-dark4) r g b / 30%)"
+              : "0 0 10px 0 rgb(from var(--background-light4) r g b / 30%)",
             backgroundColor: isColorLight(currentTheme.background.base)
-              ? "rgb(from var(--background-dark1) r g b / 40%)"
-              : "rgb(from var(--background-light1) r g b / 40%)",
+              ? "rgb(from var(--background-dark1) r g b / 30%)"
+              : "rgb(from var(--background-light1) r g b / 30%)",
           }}
         >
           <Outlet />

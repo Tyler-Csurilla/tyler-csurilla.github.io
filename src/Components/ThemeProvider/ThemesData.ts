@@ -1,7 +1,6 @@
-import { Theme, ThemeName } from "../../types/theme";
+import { Theme } from "../../types/theme";
 import { generateColorScale } from "../../utils/theme/generateColorScale";
 
-// Helper function to create a theme with color scales
 const createTheme = (
   title: string,
   bgColor: string,
@@ -20,70 +19,70 @@ const createTheme = (
   };
 };
 
-export const defaultThemes: Record<ThemeName, Theme> = {
+export const defaultThemes: Record<string, Theme> = {
   light: createTheme(
-    "Luminous Light 🌞",
-    "#FAFAFA",
-    "#222222",
-    "#6F6F6F",
-    "#F9863E",
+    "Light Mode 🌞",
+    "#E8E8E8",
+    "#333333",
+    "#777777",
+    "#555555",
     '"Inter", sans-serif'
   ),
   dark: createTheme(
-    "Moody Dark 🌙",
-    "#121212",
-    "#F5F5F5",
-    "#888888",
-    "#9F7AEA",
-    '"Roboto", sans-serif'
+    "Dark Mode 🌑",
+    "#282828",
+    "#E0E0E0",
+    "#A0A0A0",
+    "#808080",
+    '"Inter", sans-serif'
   ),
-  desert_bloom: createTheme(
-    "Desert Bloom 🌵",
-    "#F1EFE3",
-    "#5B3A24",
-    "#AB856F",
-    "#D89C6B",
-    '"Source Sans Pro", sans-serif'
+  ocean_breeze: createTheme(
+    "Ocean Breeze 🌊",
+    "#E5F2F8",
+    "#2C5282",
+    "#63B3ED",
+    "#38B2AC",
+    '"Montserrat", sans-serif'
   ),
-  forest_edge: createTheme(
-    "Forest Edge 🌲",
-    "#F6FBEF",
-    "#2F4A3C",
-    "#637B74",
-    "#92B4A7",
+  forest_retreat: createTheme(
+    "Forest Retreat 🌿",
+    "#EAEFEA",
+    "#2D3B2D",
+    "#687D6C",
+    "#81B29A",
     '"Merriweather", serif'
   ),
-  sunset_lounge: createTheme(
-    "Sunset Lounge 🌅",
-    "#FFEDD5",
-    "#2F2F2F",
-    "#7F5539",
-    "#C18E60",
+  warm_sunset: createTheme(
+    "Warm Sunset 🌅",
+    "#FDF2E7",
+    "#4A3933",
+    "#B06E50",
+    "#ED8936",
     '"Playfair Display", serif'
   ),
-  midnight_jazz: createTheme(
-    "Midnight Jazz 🎷",
-    "#101828",
-    "#E5E5E5",
-    "#5A5A5A",
-    "#845EC2",
-    '"Roboto", sans-serif'
+  royal_velvet: createTheme(
+    "Royal Velvet 👑",
+    "#26243B",
+    "#CFC9E1",
+    "#9C8EC1",
+    "#E9D8FD",
+    '"Poppins", sans-serif'
   ),
-  candy_pop: createTheme(
-    "Candy Pop 🍭",
-    "#FFF0F5",
-    "#D94086",
-    "#F28CA7",
-    "#FDBEFB",
+  cotton_candy: createTheme(
+    "Cotton Candy 🍬",
+    "#FCF1F8",
+    "#9D4C6E",
+    "#DB7093",
+    "#F687B3",
+    '"Quicksand", sans-serif'
+  ),
+  mint_fresh: createTheme(
+    "Mint Fresh 🌱",
+    "#F3F9F4",
+    "#2C4F43",
+    "#5E9F8F",
+    "#4FD1C5",
     '"Nunito", sans-serif'
-  ),
-  soothing_sage: createTheme(
-    "Soothing Sage 🌿",
-    "#F8F8F5",
-    "#445D52",
-    "#A8BFB2",
-    "#C2DAD3",
-    '"Lato", sans-serif'
   ),
   random: {
     title: "Random Theme 🎲",
@@ -139,10 +138,10 @@ export const defaultThemes: Record<ThemeName, Theme> = {
       dark4: "",
       dark5: "",
     },
-    font_family: '"Lato", sans-serif',
+    font_family: '"Inter", sans-serif',
   },
 };
 
-export const themes: Record<ThemeName, Theme> = JSON.parse(
+export const themes: Record<string, Theme> = JSON.parse(
   JSON.stringify(defaultThemes)
 );

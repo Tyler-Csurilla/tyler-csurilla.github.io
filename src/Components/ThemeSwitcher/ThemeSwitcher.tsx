@@ -11,6 +11,8 @@ const ThemeSwitcher: React.FC = () => {
     availableThemes,
     themeIsLight,
     nextThemeName,
+    getTheme,
+    currentTheme,
   } = useTheme();
 
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -49,21 +51,22 @@ const ThemeSwitcher: React.FC = () => {
     };
   }, []);
 
-  // Emoji extraction function
-  const getThemeEmoji = (name: string) => {
-    const emojiMap: Record<string, string> = {
-      light: "☀️",
-      dark: "🌙",
-      desert_bloom: "🌵",
-      forest_edge: "🌲",
-      sunset_lounge: "🌅",
-      midnight_jazz: "🎷",
-      candy_pop: "🍭",
-      soothing_sage: "🌿",
-      random: "🎲",
-    };
+  // Extract emoji from theme title
+  const extractEmoji = (title: string): string => {
+    const emojiRegex = /\p{Emoji}/u;
+    const match = title.match(emojiRegex);
+    return match ? match[0] : "🎨"; // Default if no emoji found
+  };
 
-    return emojiMap[name] || "🎨";
+  // Extract theme name without emoji for display
+  const extractNameWithoutEmoji = (title: string): string => {
+    return title.replace(/\p{Emoji}+/gu, "").trim();
+  };
+
+  // Get theme title safely
+  const getThemeTitle = (name: string): string => {
+    const theme = getTheme(name);
+    return theme?.title || formatThemeName(name);
   };
 
   return (
@@ -87,12 +90,17 @@ const ThemeSwitcher: React.FC = () => {
         <button
           className="theme-switcher-section middle"
           onClick={switchToNextTheme}
-          title={`Switch to ${formatThemeName(nextThemeName)} theme`}
-          aria-label={`Switch to ${formatThemeName(nextThemeName)} theme`}
+          title={`Switch to ${extractNameWithoutEmoji(
+            getThemeTitle(nextThemeName)
+          )} theme`}
+          aria-label={`Switch to ${extractNameWithoutEmoji(
+            getThemeTitle(nextThemeName)
+          )} theme`}
         >
           <ArrowRightIcon />
           <span className="current-theme-name">
-            {getThemeEmoji(nextThemeName)} {formatThemeName(nextThemeName)}
+            {extractEmoji(getThemeTitle(nextThemeName))}{" "}
+            {extractNameWithoutEmoji(getThemeTitle(nextThemeName))}
           </span>
         </button>
 
@@ -124,27 +132,44 @@ const ThemeSwitcher: React.FC = () => {
             role="menu"
           >
             <ul className="themes-list">
-              {availableThemes.map((name) => (
-                <li
-                  key={name}
-                  className={`theme-item ${themeName === name ? "active" : ""}`}
-                  onClick={() => {
-                    switchToThemeName(name);
-                    setDropdownOpen(false);
-                  }}
-                  role="menuitem"
-                  tabIndex={0}
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter" || e.key === " ") {
+              {availableThemes.map((name) => {
+                const themeTitle = getThemeTitle(name);
+
+                const isDarkMode = name === "dark";
+
+                return (
+                  <li
+                    key={name}
+                    className={`theme-item ${
+                      themeName === name ? "active" : ""
+                    }`}
+                    onClick={() => {
                       switchToThemeName(name);
                       setDropdownOpen(false);
-                    }
-                  }}
-                >
-                  <span className="theme-emoji">{getThemeEmoji(name)}</span>
-                  <span className="theme-name">{formatThemeName(name)}</span>
-                </li>
-              ))}
+                    }}
+                    style={{
+                      borderBottom: isDarkMode
+                        ? "1px solid " + currentTheme.background.light1
+                        : "none",
+                    }}
+                    role="menuitem"
+                    tabIndex={0}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        switchToThemeName(name);
+                        setDropdownOpen(false);
+                      }
+                    }}
+                  >
+                    <span className="theme-emoji">
+                      {extractEmoji(themeTitle)}
+                    </span>
+                    <span className="theme-name">
+                      {extractNameWithoutEmoji(themeTitle)}
+                    </span>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </div>

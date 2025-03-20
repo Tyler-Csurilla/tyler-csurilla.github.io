@@ -1,10 +1,5 @@
 import { createContext, FC, ReactNode, useEffect, useState } from "react";
-import {
-  ColorScale,
-  Theme,
-  ThemeContextValue,
-  ThemeName,
-} from "../../types/theme";
+import { ColorScale, Theme, ThemeContextValue } from "../../types/theme";
 import isColorLight from "../../utils/calculation/isColorLight";
 import { generateColorScale } from "../../utils/theme/generateColorScale";
 import { themes } from "./ThemesData";
@@ -23,6 +18,7 @@ export const ThemeContext = createContext<ThemeContextValue>({
   switchToThemeName: () => {},
   addNewTheme: () => {},
   themeIsLight: false,
+  getTheme: () => undefined,
 });
 
 const randomHex = () =>
@@ -56,11 +52,11 @@ const randomizeRandomTheme = () => {
 
 export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
   // Retrieve stored theme and custom themes from localStorage
-  const storedTheme = localStorage.getItem("themeName") as ThemeName | null;
+  const storedTheme = localStorage.getItem("themeName") as string | null;
   const customThemes = localStorage.getItem("customThemes");
   if (customThemes) {
     const customThemesFromStorage = JSON.parse(customThemes) as Record<
-      ThemeName,
+      string,
       Theme
     >;
     Object.entries(customThemesFromStorage).forEach(([key, value]) => {
@@ -70,7 +66,7 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
   const systemPrefersDark = window.matchMedia?.(
     "(prefers-color-scheme: dark)"
   )?.matches;
-  let initialThemeName: ThemeName =
+  let initialThemeName: string =
     storedTheme && storedTheme in themes
       ? storedTheme
       : systemPrefersDark
@@ -79,7 +75,7 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
 
   if (initialThemeName === "random") randomizeRandomTheme();
 
-  const [themeName, setThemeName] = useState<ThemeName>(initialThemeName);
+  const [themeName, setThemeName] = useState<string>(initialThemeName);
   const [updateCount, setUpdateCount] = useState(0);
   const [error, setError] = useState<string | null>(null);
 
@@ -162,7 +158,7 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
     updateCSSVariables();
   }, [themeName, updateCount]);
 
-  const switchToThemeName = (newThemeName: ThemeName) => {
+  const switchToThemeName = (newThemeName: string) => {
     try {
       if (newThemeName === "random") randomizeRandomTheme();
       if (!themes[newThemeName]) {
@@ -177,11 +173,15 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
     }
   };
 
-  const addNewTheme = (newThemeName: ThemeName, newTheme: Theme) => {
+  const addNewTheme = (newThemeName: string, newTheme: Theme) => {
     themes[newThemeName] = newTheme;
   };
 
-  const themeNames = Object.keys(themes) as ThemeName[];
+  const getTheme = (name: string): Theme | undefined => {
+    return themes[name];
+  };
+
+  const themeNames = Object.keys(themes);
   const currentIndex = themeNames.indexOf(themeName);
   const nextThemeName = themeNames[(currentIndex + 1) % themeNames.length];
 
@@ -204,6 +204,7 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
         switchToThemeName,
         addNewTheme,
         themeIsLight: themeIsLight,
+        getTheme,
       }}
     >
       {children}
