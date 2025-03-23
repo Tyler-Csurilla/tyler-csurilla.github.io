@@ -36,6 +36,46 @@ const LandingPage: React.FC = () => {
         <h1>Still working on things :)</h1>
         <h2>Come back later.</h2>
       </div>
+
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <div></div>
+
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <div></div>
+
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <div></div>
+
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <div></div>
+
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <div></div>
     </div>
   );
 };

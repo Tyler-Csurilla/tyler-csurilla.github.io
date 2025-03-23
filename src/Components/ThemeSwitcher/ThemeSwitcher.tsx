@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import isColorLight from "../../utils/calculation/isColorLight";
 import { useTheme } from "../../utils/hooks/useTheme";
 import { ArrowDownIcon, ArrowRightIcon, MoonIcon, SunIcon } from "./Icons";
 import "./ThemeSwitcher.css";
@@ -145,7 +146,6 @@ const ThemeSwitcher: React.FC = () => {
                     }`}
                     onClick={() => {
                       switchToThemeName(name);
-                      setDropdownOpen(false);
                     }}
                     style={{
                       borderBottom: isDarkMode
@@ -161,10 +161,24 @@ const ThemeSwitcher: React.FC = () => {
                       }
                     }}
                   >
-                    <span className="theme-emoji">
+                    <span
+                      className="theme-emoji"
+                      style={{
+                        color: isColorLight(currentTheme.background.base)
+                          ? "black"
+                          : "white",
+                      }}
+                    >
                       {extractEmoji(themeTitle)}
                     </span>
-                    <span className="theme-name">
+                    <span
+                      className="theme-name"
+                      style={{
+                        color: isColorLight(currentTheme.background.base)
+                          ? "black"
+                          : "white",
+                      }}
+                    >
                       {extractNameWithoutEmoji(themeTitle)}
                     </span>
                   </li>

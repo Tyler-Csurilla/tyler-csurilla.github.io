@@ -5,25 +5,31 @@ import ErrorBoundary from "../ErrorBoundary/ErrorBoundary";
 import { Footer } from "../Footer/Footer";
 import Navigation from "../Navigation/Navigation";
 import ParticlesBackground from "../ParticleBackground/ParticleBackground";
+import ScrollToTop from "../ScrollToTop/ScrollToTop";
 import "./AppLayout.css";
 
 const AppLayout: React.FC = () => {
   const { currentTheme } = useTheme();
+  const isLight = isColorLight(currentTheme.background.base);
 
   return (
     <div className="app-layout">
       <ErrorBoundary>
+        <ScrollToTop />
         <ParticlesBackground />
         <Navigation />
         <main
           className="app-layout__main-content"
           style={{
-            boxShadow: isColorLight(currentTheme.background.base)
-              ? "0 0 10px 0 rgb(from var(--background-dark4) r g b / 30%)"
-              : "0 0 10px 0 rgb(from var(--background-light4) r g b / 30%)",
-            backgroundColor: isColorLight(currentTheme.background.base)
-              ? "rgb(from var(--background-dark1) r g b / 30%)"
-              : "rgb(from var(--background-light1) r g b / 30%)",
+            background: isLight
+              ? `linear-gradient(180deg, 
+                  rgb(from var(--background-dark3) r g b / 0%) 5%, 
+                  rgb(from var(--accent-dark2) r g b / 25%) 40%, 
+                  rgb(from var(--background-dark2) r g b / 0%) 95%)`
+              : `linear-gradient(180deg, 
+                  rgb(from var(--background-light3) r g b / 0%) 5%, 
+                  rgb(from var(--accent-light2) r g b / 25%) 40%, 
+                  rgb(from var(--background-light1) r g b / 0%) 95%)`,
           }}
         >
           <Outlet />

@@ -12,7 +12,7 @@
     display: flex;
     align-items: center;
     background-color: rgba(45, 90, 129, 0.164);
-    border-radius: 30px;
+    border-radius: 2rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     height: 36px;
     transition: all 0.3s ease;
@@ -114,8 +114,9 @@
     top: calc(100% + 8px);
     right: 0;
     min-width: 180px;
-    background-color: var(--background-light2);
-    border-radius: 12px;
+    background-color: rgb (from 0 to 255) (from 0 to 255) (from 0 to 255) (from 0 to 1);
+    border-radius: 2rem;
+
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
     opacity: 0;
     visibility: hidden;
@@ -136,6 +137,8 @@
     margin: 0;
     padding: 0;
     overflow-y: auto;
+    border-radius: 2rem;
+    background: none;
 }
 
 .theme-item {
@@ -146,16 +149,18 @@
     gap: 8px;
     transition: background-color 0.2s;
     color: black;
-    background-color: rgba(45, 90, 129, 0.164);
+    background-color: rgba(45, 90, 129, 0.479);
 
 }
 
-.theme-item:hover * {
-    background: none !important;
+.theme-item:hover {
+    background-color: rgba(78, 133, 182, 0.582);
 }
+
+
 
 .theme-item.active {
-    background-color: rgba(95, 197, 167, 0.274);
+    background-color: rgba(45, 90, 129, 0.774);
     font-weight: 500;
 }
 
@@ -169,6 +174,10 @@
 .theme-name {
     text-transform: capitalize;
 
+}
+
+.theme-name:hover {
+    color: white !important;
 }
 
 .dropdown-backdrop {

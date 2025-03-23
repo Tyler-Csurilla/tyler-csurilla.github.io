@@ -7,13 +7,18 @@
 .app-layout__main-content {
     flex: 1;
     margin-inline: auto;
-    border-radius: 2rem;
+
+    border-radius: 5rem;
+
     padding-top: 2rem;
     padding-inline: 5rem;
 
-    backdrop-filter: blur(0.1rem);
-
+    backdrop-filter: blur(0.2rem);
 
     margin-top: 2rem;
     margin-bottom: 2rem;
+
+    text-shadow: 0 0 1rem var(--accent-dark2);
+
+    background-repeat: no-repeat;
 }

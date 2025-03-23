@@ -15,7 +15,15 @@ export function hexToRgb(hex: string) {
     b: intVal & 255,
   };
 }
+export function hexToRgbString(hex: string) {
+  hex = hex.replace(/^#/, "");
 
+  const r = parseInt(hex.slice(0, 2), 16);
+  const g = parseInt(hex.slice(2, 4), 16);
+  const b = parseInt(hex.slice(4, 6), 16);
+
+  return `${r}, ${g}, ${b}`;
+}
 // Convert RGB values to HSL.
 export function rgbToHsl({ r, g, b }: { r: number; g: number; b: number }) {
   r /= 255;
