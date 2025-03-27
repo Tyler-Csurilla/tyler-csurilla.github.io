@@ -2,23 +2,117 @@
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    position: relative;
+    isolation: isolate;
+}
+
+.app-layout::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    background: inherit;
+    pointer-events: none;
 }
 
 .app-layout__main-content {
     flex: 1;
     margin-inline: auto;
-
-    border-radius: 5rem;
-
-    padding-top: 2rem;
-    padding-inline: 5rem;
-
+    border-radius: 1rem;
+    padding-block: 2rem;
+    padding-inline: clamp(1rem, 5vw, 2rem);
     backdrop-filter: blur(0.2rem);
+    margin-block: 2rem;
+    width: min(100% - 2rem, 39rem);
+    box-sizing: border-box;
+}
 
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+.app-layout::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0.08;
+    z-index: -1;
+    background-image: url('../../Assets/noise-texture.svg');
+    pointer-events: none;
+    border-radius: inherit;
+}
 
-    text-shadow: 0 0 1rem var(--accent-dark2);
+.nav {
+    display: flex;
+    align-items: center;
+    max-width: 100%;
+    margin: 0 auto 3rem auto;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgb(from var(--background-dark2) r g b / 15%);
+    border-radius: 25rem;
+}
 
-    background-repeat: no-repeat;
+.nav-links {
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    font-size: 1.1rem;
+}
+
+.nav-links a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease, background-color 0.2s ease;
+    height: 2.75rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-radius: 1.5rem;
+    padding: 0 1.25rem;
+    margin-inline-start: -1px;
+    background-color: transparent;
+}
+
+.nav-links a:first-child {
+    margin-inline-start: 0;
+}
+
+.nav-links a:hover {
+    color: var(--accent-base);
+    background-color: rgb(from var(--accent-base) r g b / 0.1);
+    z-index: 1;
+}
+
+.nav-links a::after {
+    content: none;
+}
+
+.nav-links a svg {
+    display: block;
+}
+
+.nav-links a:hover svg {
+    stroke: var(--accent-light1);
+}
+
+
+@media (max-width: 768px) {
+    .app-layout__main-content {
+        margin-block: 1rem;
+        border-radius: 0.5rem;
+        padding-block: 1rem;
+        width: min(100% - 1rem, 39rem);
+    }
+
+    .nav {
+        margin-bottom: 2rem;
+    }
+
+    .nav-links {
+        font-size: 1rem;
+    }
+
+    .nav-links a {
+        height: 2.5rem;
+        padding: 0 1rem;
+    }
 }

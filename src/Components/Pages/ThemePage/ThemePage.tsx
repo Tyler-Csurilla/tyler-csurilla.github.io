@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { defaultThemes } from "../../../data/ThemesData";
 import { Theme } from "../../../types/theme";
 import isColorLight from "../../../utils/calculation/isColorLight";
 import { useTheme } from "../../../utils/hooks/useTheme";
 import { generateColorScale } from "../../../utils/theme/generateColorScale";
 import { safeGetColorScale } from "../../../utils/theme/safeColorScale";
-import { defaultThemes } from "../../ThemeProvider/ThemesData";
 import "./ThemePage.css";
 
 interface CustomTheme extends Theme {}

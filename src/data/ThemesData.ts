@@ -1,5 +1,5 @@
-import { Theme } from "../../types/theme";
-import { generateColorScale } from "../../utils/theme/generateColorScale";
+import { Theme } from "../types/theme";
+import { generateColorScale } from "../utils/theme/generateColorScale";
 
 const createTheme = (
   title: string,
@@ -65,7 +65,7 @@ export const defaultThemes: Record<string, Theme> = {
     "#26243B",
     "#CFC9E1",
     "#9C8EC1",
-    "#E9D8FD",
+    "#460794",
     '"Poppins", sans-serif'
   ),
   cotton_candy: createTheme(

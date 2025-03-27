@@ -1,8 +1,8 @@
 import { createContext, FC, ReactNode, useEffect, useState } from "react";
+import { themes } from "../../data/ThemesData";
 import { ColorScale, Theme, ThemeContextValue } from "../../types/theme";
 import isColorLight from "../../utils/calculation/isColorLight";
 import { generateColorScale } from "../../utils/theme/generateColorScale";
-import { themes } from "./ThemesData";
 
 interface ThemeProviderProps {
   children: ReactNode;
