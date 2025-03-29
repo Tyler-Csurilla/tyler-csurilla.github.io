@@ -120,7 +120,7 @@
     right: 0;
     min-width: 180px;
     border-radius: 2rem;
-    background: rgb(from var(--background-dark3) r g b / 15%);
+    background: rgb(from var(--background-dark3) r g b / 30%);
     box-shadow: 0 0.2rem 1rem rgb(from var(--background-dark1) r g b / 100%);
     opacity: 0;
     visibility: hidden;
@@ -209,8 +209,8 @@
 @media (max-width: 768px) {
     .theme-switcher-container {
         position: fixed;
-        right: 0.25rem;
-        top: 0.25rem;
+        right: 1rem;
+        bottom: 1rem;
         transform: none !important
     }
 
@@ -224,8 +224,8 @@
 
     .dropdown-menu {
         right: 0;
-        background: rgb(from var(--background-dark3) r g b / 100%);
-
+        bottom: calc(100% + 8px);
+        top: unset;
     }
 
     .current-theme-name {

@@ -62,3 +62,22 @@
     box-shadow: 0 4px 12px var(--accent-base);
     transform: translateY(-2px);
 }
+
+.landing-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.name-container {
+    margin-left: 1rem;
+}
+
+.name-line {
+    display: flex;
+}
+
+.letter {
+    display: inline-block;
+    margin-right: 0.1rem;
+}

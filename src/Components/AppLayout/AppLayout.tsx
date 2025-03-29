@@ -50,13 +50,13 @@ const AppLayout: React.FC = () => {
           className="app-layout__main-content"
           style={{
             background: isLight
-              ? `linear-gradient(180deg, 
-                  rgb(from var(--background-dark3) r g b / 0%) 5%, 
-                  rgb(from var(--background-dark2) r g b / 25%) 55%, 
+              ? `linear-gradient(180deg,
+                  rgb(from var(--background-dark3) r g b / 0%) 5%,
+                  rgb(from var(--background-dark2) r g b / 25%) 55%,
                   rgb(from var(--background-dark1) r g b / 0%) 95%)`
-              : `linear-gradient(180deg, 
-                  rgb(from var(--background-light3) r g b / 0%) 10%, 
-                  rgb(from var(--background-light2) r g b / 25%) 40%, 
+              : `linear-gradient(180deg,
+                  rgb(from var(--background-light3) r g b / 0%) 10%,
+                  rgb(from var(--background-light2) r g b / 25%) 40%,
                   rgb(from var(--background-light1) r g b / 0%) 95%)`,
           }}
         >
