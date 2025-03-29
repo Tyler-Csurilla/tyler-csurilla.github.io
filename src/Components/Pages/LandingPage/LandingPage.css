@@ -12,3 +12,31 @@
     align-items: center;
     justify-content: center;
 }
+
+.name-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.name-line {
+    display: flex;
+    line-height: 1;
+}
+
+.name-line span {
+    display: inline-block;
+    white-space: pre;
+}
+
+.letter {
+    cursor: default;
+    margin: 0 1px;
+    display: inline-block;
+    transform-origin: center;
+    position: relative;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.letter:hover {
+    color: var(--primary-light, #8a8a8a);
+}

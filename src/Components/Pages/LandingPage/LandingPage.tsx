@@ -7,26 +7,67 @@ const LandingPage: React.FC = () => {
     <div className="landing-page">
       <motion.div
         className="landing-page__header"
-        initial={{ opacity: 0, y: -50, rotateX: -53 }}
-        animate={{ opacity: 1, y: 0, rotateX: 0 }}
+        initial={{ opacity: 0, y: -3, rotateZ: -8 }}
+        animate={{ opacity: 1, y: 0, rotateZ: 0 }}
+        transition={{
+          type: "spring",
+          stiffness: 100,
+          damping: 10,
+          delay: 0.25,
+        }}
       >
         <LogoHeadshot />
 
-        <motion.h1
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{
-            delay: 0.5,
-            type: "spring",
-            stiffness: 100,
-
-            damping: 50,
-          }}
-        >
-          Tyler <br />
-          Csurilla
-        </motion.h1>
+        <div className="name-container">
+          <motion.h1>
+            <div className="name-line">
+              {Array.from("Tyler").map((letter, index) => (
+                <motion.span
+                  key={`t-${index}`}
+                  initial={{ opacity: 0, y: -3, rotateZ: -2 }}
+                  animate={{ opacity: 1, y: 0, rotateZ: 0 }}
+                  whileHover={{
+                    opacity: 0.8,
+                    transition: { duration: 0.1 },
+                  }}
+                  transition={{
+                    delay: 0.1 + index * 0.1,
+                    type: "spring",
+                    stiffness: 100,
+                    damping: 10,
+                  }}
+                  className="letter"
+                >
+                  {letter}
+                </motion.span>
+              ))}
+            </div>
+            <div className="name-line">
+              {Array.from("Csurilla").map((letter, index) => (
+                <motion.span
+                  key={`c-${index}`}
+                  initial={{ opacity: 0, y: -3, rotateZ: -1 }}
+                  animate={{ opacity: 1, y: 0, rotateZ: 0 }}
+                  whileHover={{
+                    opacity: 0.8,
+                    transition: { duration: 0.1 },
+                  }}
+                  transition={{
+                    delay: 0.1 + Array.from("Tyler").length * 0.1 + index * 0.1,
+                    type: "spring",
+                    stiffness: 100,
+                    damping: 10,
+                  }}
+                  className="letter"
+                >
+                  {letter}
+                </motion.span>
+              ))}
+            </div>
+          </motion.h1>
+        </div>
       </motion.div>
+
       <br />
       <br />
       <br />
