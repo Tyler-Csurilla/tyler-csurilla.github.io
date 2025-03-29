@@ -17,15 +17,28 @@
 
 .app-layout__main-content {
     flex: 1;
+    position: relative;
     margin-inline: auto;
     border-radius: 1rem;
     padding-block: 2rem;
     padding-inline: clamp(1rem, 5vw, 2rem);
-    backdrop-filter: blur(0.2rem);
+    backdrop-filter: blur(0.1rem);
+
     margin-block: 2rem;
     width: min(100% - 2rem, 39rem);
     box-sizing: border-box;
 }
+
+.app-layout__main-content::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    mask-image: linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%);
+    pointer-events: none;
+}
+
 
 .app-layout::after {
     content: "";

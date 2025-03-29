@@ -121,8 +121,19 @@ const LogoHeadshot: React.FC<HeadshotLogoProps> = () => {
         initial="initial"
         animate="animate"
         whileHover="hover"
+        whileTap={{
+          scale: 1.12,
+          transition: {
+            duration: 0.1,
+            type: "spring",
+            stiffness: 300,
+            damping: 10,
+          },
+        }}
         src={headshot}
-        alt="Profile headshot"
+        alt="Headshot Photo of Tyler Csurilla"
+        draggable="false"
+        onMouseDown={(e) => e.preventDefault()}
       />
       <motion.div
         className="headshot-logo__halfcircle-border-wrapper"
