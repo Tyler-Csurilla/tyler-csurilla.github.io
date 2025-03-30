@@ -17,12 +17,17 @@
     border-radius: 50%;
     display: block;
     z-index: 2;
-    filter: drop-shadow(0 2px 8px var(--background-dark5));
+    filter: drop-shadow(0 0px 0.5rem var(--background-dark4));
     position: relative;
     pointer-events: auto;
     user-select: none;
     -webkit-user-drag: none;
     cursor: default;
+    transition: filter 1s ease;
+}
+
+.headshot-logo__image:hover {
+    filter: drop-shadow(0 4px 0.2rem var(--background-dark4));
 }
 
 .headshot-logo__halfcircle-border-wrapper {
@@ -53,31 +58,46 @@
     background-color: var(--background-light1);
     color: var(--primary-base);
     border: 2px solid var(--accent-base);
-    box-shadow: 0 2px 8px var(--accent-dark2);
     transition: all var(--transition);
 }
 
 .logo-headshot__inner:hover {
     border-color: var(--accent-light1);
-    box-shadow: 0 4px 12px var(--accent-base);
     transform: translateY(-2px);
 }
 
 .landing-header {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    gap: 3rem;
 }
 
-.name-container {
-    margin-left: 1rem;
-}
 
 .name-line {
     display: flex;
+    text-shadow: 0 0 0.3rem var(--accent-dark1);
+
 }
 
 .letter {
     display: inline-block;
     margin-right: 0.1rem;
+}
+
+
+
+
+@media (max-width: 768px) {
+
+    .headshot-logo__container {
+        width: 7rem;
+    }
+
+    .name-container {
+        margin-left: 0.5rem;
+    }
+
+    .name-line {
+        font-size: 1.75rem;
+    }
 }

@@ -1,32 +1,21 @@
 .landing-page {
-    min-height: 100vh;
     width: 100%;
     color: var(--primary-base);
 }
 
-
 .landing-page__header {
     display: flex;
     gap: 1rem;
-    padding: 2rem;
+    padding: 3rem;
     align-items: center;
     justify-content: center;
+    background: linear-gradient(180deg,
+            rgb(from var(--background-dark3) r g b / 0%) 5%,
+            rgb(from var(--background-dark2) r g b / 25%) 55%,
+            rgb(from var(--background-dark1) r g b / 0%) 95%);
 }
 
-.name-container {
-    display: flex;
-    flex-direction: column;
-}
 
-.name-line {
-    display: flex;
-    line-height: 1;
-}
-
-.name-line span {
-    display: inline-block;
-    white-space: pre;
-}
 
 .letter {
     cursor: default;
@@ -39,4 +28,85 @@
 
 .letter:hover {
     color: var(--primary-light, #8a8a8a);
+}
+
+
+/* Social Links  */
+.social-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    opacity: 0.8;
+    background-image: radial-gradient(circle at 50% 50%, rgb(from var(--accent-light1) r g b / 15%) 0%, transparent 0%),
+        radial-gradient(circle at 50% 50%, transparent 0%, rgb(from var(--accent-light1) r g b / 15%) 50%, transparent 100%);
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.125rem;
+    height: 2.125rem;
+    border-radius: 15%;
+    background-color: var(--background-dark2);
+    opacity: 1;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.social-links a:hover {
+    transform: scale(1.05);
+    opacity: 0.7;
+    background-color: var(--accent-base);
+}
+
+.social-links svg {
+    width: 224px;
+    height: 24px;
+    fill: var(--background-light1);
+}
+
+
+
+/* Landing Page Tagline */
+.tagline__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+    z-index: 0;
+
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    align-items: center;
+    text-align: center;
+    margin-top: 4rem;
+    margin-inline: 2rem;
+    padding: 1rem;
+}
+
+.tagline__container:hover::before {
+    background-size: 100% 5%, 100% 5%, 2px 100%, 2px 100%;
+
+}
+
+.tagline__container h3 {
+    text-align: center;
+}
+
+
+
+
+@media (max-width: 576px) {
+
+    .tagline__container {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+
+    .social-links svg {
+        width: 20px;
+        height: 20px;
+    }
 }

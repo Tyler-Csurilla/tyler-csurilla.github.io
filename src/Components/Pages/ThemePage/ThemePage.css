@@ -1,6 +1,5 @@
 .theme-page {
     color: var(--primary-base);
-    padding: 2rem;
     display: flex;
     flex-direction: column;
     gap: 2rem;

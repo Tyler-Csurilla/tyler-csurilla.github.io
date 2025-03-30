@@ -65,7 +65,7 @@ export const defaultThemes: Record<string, Theme> = {
     "#26243B",
     "#CFC9E1",
     "#9C8EC1",
-    "#460794",
+    "#9f10fe",
     '"Poppins", sans-serif'
   ),
   cotton_candy: createTheme(

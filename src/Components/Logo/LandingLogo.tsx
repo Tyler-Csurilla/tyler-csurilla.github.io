@@ -13,7 +13,6 @@ const LogoHeadshot = () => {
   const [shouldAnimateEntry, setShouldAnimateEntry] = useState(
     !initialAnimationPlayed
   );
-  const [isHovering, setIsHovering] = useState(false);
 
   let isBackgroundLight = isColorLight(currentTheme.background.base);
 
@@ -113,21 +112,19 @@ const LogoHeadshot = () => {
       className="headshot-logo__container"
       style={{ backgroundImage }}
       initial={shouldAnimateEntry ? "initial" : false}
-      animate={isHovering ? ["animate", "hover"] : "animate"}
+      animate="animate"
       variants={{
         initial: containerInitial,
         animate: containerAnimate,
         hover: containerHover,
       }}
       whileHover="hover"
-      onMouseEnter={() => setIsHovering(true)}
-      onMouseLeave={() => setIsHovering(false)}
       onAnimationComplete={handleAnimationComplete}
     >
       <motion.img
         className="headshot-logo__image"
         initial={shouldAnimateEntry ? "initial" : false}
-        animate={isHovering ? ["animate", "hover"] : "animate"}
+        animate="animate"
         variants={{
           initial: imageInitial,
           animate: imageAnimate,
@@ -135,11 +132,11 @@ const LogoHeadshot = () => {
         }}
         whileHover="hover"
         whileTap={{
-          scale: 1.12,
+          scale: 1.18,
           transition: {
             duration: 0.1,
             type: "spring",
-            stiffness: 300,
+            stiffness: 500,
             damping: 10,
           },
         }}
