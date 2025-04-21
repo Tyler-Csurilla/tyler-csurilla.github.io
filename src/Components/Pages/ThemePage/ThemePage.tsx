@@ -175,45 +175,8 @@ const ThemePage: React.FC = () => {
         <Link to="/theme/demo" className="theme-page__demo-link">
           View Theme Demo
         </Link>
-        <p className="theme-page__demo-description">
-          See how the current theme looks with different UI components
-        </p>
       </div>
 
-      {/* Color Scales (Collapsible) */}
-      <details className="theme-page__color-scales-details">
-        <summary className="theme-page__color-scales-summary">
-          View Complete Color Scales (Click Here)
-        </summary>
-        <div className="theme-page__color-scales">
-          <div className="theme-page__scales-container">
-            {colorGroups.map(({ label, key }) => {
-              const colorScale = safeGetColorScale(currentTheme, key);
-              return (
-                <div key={key} className="theme-page__scale-group">
-                  <h4>{label}</h4>
-                  <div className="theme-page__scale">
-                    {Object.entries(colorScale).map(([variant, color]) => (
-                      <div
-                        key={variant}
-                        className="theme-page__scale-item"
-                        style={{
-                          backgroundColor: color,
-                          color: isColorLight(color) ? "#000" : "#fff",
-                        }}
-                      >
-                        {variant}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </details>
-
-      {/* Theme Customizer */}
       <div className="theme-page__customizer">
         <h2 className="theme-page__section-title">Create Your Own Theme</h2>
 
@@ -281,9 +244,11 @@ const ThemePage: React.FC = () => {
                         style={{
                           backgroundColor: color,
                           color: isColorLight(color) ? "#000" : "#fff",
+                          writingMode: "vertical-rl",
+                          textOrientation: "mixed",
                         }}
                       >
-                        {variant}: {color}
+                        {color}
                       </div>
                     );
                   })}

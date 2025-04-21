@@ -28,25 +28,28 @@ const ThemeDemo: React.FC = () => {
     <div className="theme-demo">
       <h2>Theme System Demo</h2>
 
-      <div className="theme-demo__palette">
-        {colorSections.map((section) => (
-          <div key={section.name} className="theme-demo__color-section">
-            <h3>{section.name} Colors</h3>
-            <div className="theme-demo__color-row">
-              {Object.entries(section.scale).map(([variant, color]) => (
-                <div
-                  key={variant}
-                  className="theme-demo__color-box"
-                  style={{ backgroundColor: color as string }}
-                >
-                  <span>{variant as string}</span>
-                  <span>{color as string}</span>
-                </div>
-              ))}
+      <details className="theme-demo__details">
+        <summary>View Color Palette</summary>
+        <div className="theme-demo__palette">
+          {colorSections.map((section) => (
+            <div key={section.name} className="theme-demo__color-section">
+              <h3>{section.name} Colors</h3>
+              <div className="theme-demo__color-row">
+                {Object.entries(section.scale).map(([variant, color]) => (
+                  <div
+                    key={variant}
+                    className="theme-demo__color-box"
+                    style={{ backgroundColor: color as string }}
+                  >
+                    <span>{variant as string}</span>
+                    <span>{color as string}</span>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      </details>
 
       <div className="theme-demo__examples">
         <h3>UI Elements</h3>

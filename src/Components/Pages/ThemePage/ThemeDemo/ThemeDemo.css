@@ -1,10 +1,16 @@
 .theme-demo {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 2rem;
-    background-color: var(--background-light2);
+    padding: 1.5rem;
+    background-color: transparent;
     color: var(--primary-base);
     border-radius: 8px;
+}
+
+.theme-demo__details {
+    background: rgba(255, 255, 255, 0.096);
+    padding: 1rem;
+    border-radius: 1rem;
 }
 
 .theme-demo h2 {
@@ -18,12 +24,6 @@
     color: var(--primary-base);
 }
 
-.theme-demo__palette {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    margin-bottom: 3rem;
-}
 
 .theme-demo__color-section h3 {
     margin-bottom: 0.5rem;
@@ -40,11 +40,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 120px;
-    height: 120px;
-    border-radius: 4px;
-    padding: 0.5rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 100px;
+    height: 100px;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.438);
 }
 
 .theme-demo__color-box span:first-child {
@@ -63,16 +62,43 @@
     gap: 2rem;
 }
 
-.theme-demo__card {
+.theme-demo__card,
+.theme-demo__form-example {
+    position: relative;
     background-color: var(--background-light1);
     padding: 1.5rem;
     border-radius: 8px;
 }
 
 .theme-demo__example__wrapper {
-    box-shadow: 0 4px 12px var(--accent-dark2);
     border-radius: 8px;
+    position: relative;
+}
 
+.theme-demo__example__wrapper::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 8px;
+    z-index: -1;
+    opacity: 0;
+    background:
+        linear-gradient(to right, rgb(from var(--accent-dark1) r g b / 40%), transparent 30%, transparent 70%, rgb(from var(--accent-dark1) r g b / 40%)) top,
+        linear-gradient(to left, rgb(from var(--accent-dark1) r g b / 40%), transparent 30%, transparent 70%, rgb(from var(--accent-dark1) r g b / 40%)) bottom,
+        linear-gradient(to bottom, rgb(from var(--accent-dark1) r g b / 40%), transparent 30%, transparent 70%, rgb(from var(--accent-dark1) r g b / 40%)) left,
+        linear-gradient(to top, rgb(from var(--accent-dark1) r g b / 40%), transparent 30%, transparent 70%, rgb(from var(--accent-dark1) r g b / 40%)) right;
+
+    background-repeat: no-repeat;
+    background-size: 100% 1px, 100% 1px, 1px 100%, 1px 100%;
+    background-position: top, bottom, left, right;
+
+    border: 1px solid transparent;
+    background-clip: padding-box;
+    transition: opacity 0.4s ease;
+}
+
+.theme-demo__example__wrapper:hover::before {
+    opacity: 0.6;
 }
 
 .theme-demo__card h4 {
@@ -87,11 +113,13 @@
 
 .theme-demo__button {
     padding: 0.5rem 1rem;
-    border-radius: 4px;
+    border-radius: 6px;
+    /* Adjust radius */
     font-weight: 500;
     cursor: pointer;
     margin-right: 0.5rem;
     transition: background-color 0.2s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .theme-demo__button--primary {
@@ -101,6 +129,7 @@
 
 .theme-demo__button--primary:hover {
     background-color: var(--accent-dark1);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
 .theme-demo__button--secondary {
@@ -110,13 +139,13 @@
 
 .theme-demo__button--secondary:hover {
     background-color: var(--secondary-dark1);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
 .theme-demo__form-example {
     background-color: var(--background-light1);
     padding: 1.5rem;
     border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .theme-demo__form-row {
@@ -135,10 +164,10 @@
 
 .theme-demo__form-row input[type="text"] {
     padding: 0.5rem;
-    border: 1px solid var(--secondary-light2);
-    border-radius: 4px;
+    border: 1px solid var(--primary-light4);
+    border-radius: 6px;
     width: 100%;
-    background-color: var(--background-base);
+    background-color: var(--background-light1);
     color: var(--primary-base);
 }
 
