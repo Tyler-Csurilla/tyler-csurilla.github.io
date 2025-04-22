@@ -10,9 +10,6 @@ export function Navigation() {
         <Link to="/" className="faded-corner-borders-hover">
           Home
         </Link>
-        <Link to="/theme" className="faded-corner-borders-hover">
-          Theme
-        </Link>
         <a
           href="https://github.com/Tyler-Csurilla/tyler-csurilla.github.io"
           target="_blank"

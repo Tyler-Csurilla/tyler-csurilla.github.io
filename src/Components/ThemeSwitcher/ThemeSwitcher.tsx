@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import { useTheme } from "../../utils/hooks/useTheme";
 import { ArrowDownIcon, ArrowRightIcon, MoonIcon, SunIcon } from "./Icons";
 import "./ThemeSwitcher.css";
@@ -168,6 +169,33 @@ const ThemeSwitcher: React.FC = () => {
                   </li>
                 );
               })}
+              {/* Add option below for making a customized theme linking to /theme */}
+              <Link
+                to="/theme"
+                style={{
+                  color: "var(----background-light4)",
+                }}
+              >
+                <li
+                  className={`theme-item`}
+                  role="menuitem"
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      setDropdownOpen(false);
+                    }
+                  }}
+                  style={{
+                    borderTop:
+                      "1px solid rgb(from var(--background-dark2) r g b / 50%)",
+                    backgroundColor:
+                      "rgb(from var(--background-dark2) r g b / 25%)",
+                  }}
+                >
+                  <span className="theme-emoji">🎨</span>
+                  <span className="theme-name">Create</span>
+                </li>
+              </Link>
             </ul>
           </div>
         </div>

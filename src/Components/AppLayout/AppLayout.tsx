@@ -20,11 +20,11 @@ const AppLayout: React.FC = () => {
         background: isLight
           ? `linear-gradient(
       180deg,
-      rgb(from var(--background-dark5) r g b / 100%) -8%,
-      rgb(from var(--background-dark4) r g b / 60%) -1%,
-      rgb(from var(--background-dark3) r g b / 30%) 6%,
-      rgb(from var(--background-dark2) r g b / 10%) 12%,
-      rgb(from var(--background-dark1) r g b / 0%) 18%
+      rgb(from var(--background-dark5) r g b / 100%) -8rem,
+      rgb(from var(--background-dark4) r g b / 50%) -1rem,
+      rgb(from var(--background-dark3) r g b / 30%) 6rem,
+      rgb(from var(--background-dark2) r g b / 10%) 12rem,
+      rgb(from var(--background-dark1) r g b / 0%) 18rem
     )`
           : `linear-gradient(
       180deg,
