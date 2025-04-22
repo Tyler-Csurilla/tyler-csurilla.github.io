@@ -146,7 +146,7 @@ const ThemePage: React.FC = () => {
       {/* Current Theme Display */}
       <div className="theme-page__current-theme">
         <h1 className="theme-page__current-theme-name">
-          <span style={{ textDecoration: "underline" }}>Selected</span>:{" "}
+          <span style={{ fontWeight: "bold" }}>Theme</span>:{" "}
           {currentTheme?.title || "Custom Theme"}
         </h1>
       </div>

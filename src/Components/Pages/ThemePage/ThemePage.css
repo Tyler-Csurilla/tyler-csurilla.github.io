@@ -68,7 +68,6 @@
 
 .theme-page__current-theme-name {
     font-size: 1.6rem;
-    font-weight: 700;
     color: var(--accent-base);
     margin: 0;
 }
@@ -101,6 +100,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    opacity: 0.6;
 }
 
 .theme-page__swatch span {
@@ -112,48 +112,8 @@
 .theme-page__swatch:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    opacity: 1;
 }
-
-.theme-page__color-scales {
-    margin-top: 1rem;
-    padding: 1rem 0;
-    background-color: transparent;
-}
-
-
-
-.theme-page__color-scales-summary {
-    padding: 1rem 1.5rem;
-    cursor: pointer;
-    font-size: 1.2rem;
-    font-weight: 600;
-    text-align: center;
-    transition: all 0.2s ease;
-    border-radius: 0;
-    color: var(--primary-dark1);
-    user-select: none;
-    outline: none;
-    position: relative;
-    list-style: none;
-}
-
-.theme-page__color-scales-summary:hover {
-    background-color: var(--background-light1);
-}
-
-
-
-.theme-page__color-scales-summary:after {
-    content: '▼';
-    font-size: 0.8rem;
-    margin-left: 0.5rem;
-    transition: transform 0.3s ease;
-    display: inline-block;
-    color: var(--accent-base);
-    position: relative;
-    top: -2px;
-}
-
 
 .theme-page__scales-container {
     display: flex;
@@ -347,6 +307,7 @@
     text-align: center;
     font-size: 0.9rem;
     font-weight: 500;
+    border-radius: 1rem;
 }
 
 .theme-page__save-button {
@@ -373,6 +334,7 @@
 
 .theme-page__demo-link-wrapper {
     text-align: center;
+    opacity: 0.75;
 }
 
 .theme-page__demo-link {
