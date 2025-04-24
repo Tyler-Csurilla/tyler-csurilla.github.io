@@ -1,6 +1,5 @@
 .footer__container {
     padding: 0.5rem 0;
     text-align: center;
-    background-color: rgba(0, 0, 0, 0.1);
     color: var(--primary_Color);
 }
