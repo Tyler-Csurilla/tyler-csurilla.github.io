@@ -67,8 +67,8 @@
     padding: 0;
     font-family: var(--font_family);
     font-family: "Space Mono", monospace;
-    font-weight: 400;
     font-style: normal;
+    font-weight: unset;
 }
 
 body {
@@ -521,7 +521,6 @@ table {
     position: absolute;
     inset: 0;
     z-index: 22;
-    opacity: 0.25;
     background:
         linear-gradient(to right, rgb(from var(--accent-dark1) r g b / 40%), transparent 30%, transparent 70%, rgb(from var(--accent-dark1) r g b / 40%)) top,
         linear-gradient(to left, rgb(from var(--accent-dark1) r g b / 40%), transparent 30%, transparent 70%, rgb(from var(--accent-dark1) r g b / 40%)) bottom,
@@ -529,9 +528,9 @@ table {
         linear-gradient(to top, rgb(from var(--accent-dark1) r g b / 40%), transparent 30%, transparent 70%, rgb(from var(--accent-dark1) r g b / 40%)) right;
 
     background-repeat: no-repeat;
-    background-size: 100% 3px, 100% 3px, 3px 100%, 3px 100%;
+    background-size: 0% 0.5rem, 0% 0.5rem, 0.25rem 100%, 0.25rem 100%;
     background-position: top, bottom, left, right;
-
+    opacity: 0.5;
     border: 2px solid transparent;
     background-clip: padding-box;
     transition: background-size 1s ease;

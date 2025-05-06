@@ -76,7 +76,7 @@
 .name-line {
     display: flex;
     text-shadow: 0 0 0.3rem var(--accent-dark1);
-
+    font-weight: 100;
 }
 
 .letter {

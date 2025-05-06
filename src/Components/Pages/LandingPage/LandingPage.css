@@ -70,14 +70,16 @@
 
 /* Landing Page Tagline */
 .tagline__container {
+    filter: drop-shadow(-0.4rem 0.6rem 2px rgb(from var(--background-dark5) r g b / 20%));
+    user-select: none;
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 1rem;
     position: relative;
     z-index: 0;
-
     display: grid;
+    height: 10rem;
     grid-template-columns: 2fr 2fr;
     align-items: center;
     text-align: center;
@@ -89,6 +91,12 @@
 .tagline__container:hover::before {
     background-size: 100% 5%, 100% 5%, 2px 100%, 2px 100%;
 
+}
+
+.tagline__container h2 {
+    font-weight: 600;
+    color: var(--primary-base);
+    text-align: center;
 }
 
 .tagline__container h3 {

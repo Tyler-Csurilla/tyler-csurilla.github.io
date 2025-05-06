@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import LogoHeadshot from "../../Logo/LandingLogo";
+import ScreenExtender from "../../ScreenExtender/ScreenExtender";
 import "./LandingPage.css";
 
 const LandingPage: React.FC = () => {
@@ -41,16 +42,19 @@ const LandingPage: React.FC = () => {
             className="tagline__container col-12 faded-corner-borders"
           >
             <div>
-              <h1>Full-Stack</h1>
-              <h1>Developer</h1>
+              <h2>Full-Stack</h2>
+              <h2>Developer</h2>
             </div>
-
             <h3 style={{ fontStyle: "italic" }}>
-              3+ years of experience, building software with precision.
+              <span style={{ whiteSpace: "nowrap" }}>
+                3+ years of experience.
+              </span>
             </h3>
           </motion.div>
         </div>
       </div>
+
+      <ScreenExtender />
     </div>
   );
 };

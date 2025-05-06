@@ -27,11 +27,12 @@
     align-items: center;
     justify-content: center;
     position: relative;
-    width: 5rem;
+    min-width: 5rem;
     margin-inline-start: -1px;
     background-color: transparent;
     opacity: 1;
     position: relative;
+    padding: 1rem;
 }
 
 .nav-links a:first-child {
