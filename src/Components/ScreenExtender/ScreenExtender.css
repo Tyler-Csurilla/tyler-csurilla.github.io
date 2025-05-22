@@ -1,5 +1,9 @@
 .screen-extender {
     width: 100%;
     background-color: transparent;
-    pointer-events: none;
+}
+
+.scroll-down-indicator,
+.scroll-down-indicator--bottom {
+    pointer-events: auto;
 }

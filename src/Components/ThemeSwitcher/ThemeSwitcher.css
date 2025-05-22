@@ -71,11 +71,7 @@
     border-bottom-right-radius: 50%;
 }
 
-.left:hover,
-.middle:hover,
-.right:hover {
-    background-color: rgba(0, 0, 0, 0.062);
-}
+
 
 .current-theme-name {
     font-size: 13px;

@@ -5,6 +5,7 @@ interface ScreenExtenderProps {
   className?: string;
   style?: React.CSSProperties;
   minHeight?: number; // Minimum height to show
+  children?: React.ReactNode;
 }
 
 /**
@@ -15,6 +16,7 @@ const ScreenExtender: React.FC<ScreenExtenderProps> = ({
   className,
   style,
   minHeight = 0,
+  children,
 }) => {
   const [height, setHeight] = useState<number>(0);
   const extenderRef = useRef<HTMLDivElement>(null);
@@ -53,8 +55,11 @@ const ScreenExtender: React.FC<ScreenExtenderProps> = ({
         height: `${height}px`,
         minHeight: minHeight ? `${minHeight}px` : undefined,
         ...style,
+        position: "relative",
       }}
-    />
+    >
+      {height > 0 && children}
+    </div>
   );
 };
 

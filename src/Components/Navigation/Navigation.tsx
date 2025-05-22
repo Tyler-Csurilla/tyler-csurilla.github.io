@@ -10,6 +10,12 @@ export function Navigation() {
         <Link to="/" className="faded-corner-borders-hover">
           Home
         </Link>
+        {/* <Link to="#About" className="faded-corner-borders-hover">
+          About
+        </Link> */}
+        <Link to="#My-Experience" className="faded-corner-borders-hover">
+          Experience
+        </Link>
         <a
           href="https://github.com/Tyler-Csurilla/tyler-csurilla.github.io"
           target="_blank"

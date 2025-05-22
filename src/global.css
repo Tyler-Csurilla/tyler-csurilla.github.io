@@ -522,18 +522,19 @@ table {
     inset: 0;
     z-index: 22;
     background:
-        linear-gradient(to right, rgb(from var(--accent-dark1) r g b / 40%), transparent 30%, transparent 70%, rgb(from var(--accent-dark1) r g b / 40%)) top,
-        linear-gradient(to left, rgb(from var(--accent-dark1) r g b / 40%), transparent 30%, transparent 70%, rgb(from var(--accent-dark1) r g b / 40%)) bottom,
-        linear-gradient(to bottom, rgb(from var(--accent-dark1) r g b / 40%), transparent 30%, transparent 70%, rgb(from var(--accent-dark1) r g b / 40%)) left,
-        linear-gradient(to top, rgb(from var(--accent-dark1) r g b / 40%), transparent 30%, transparent 70%, rgb(from var(--accent-dark1) r g b / 40%)) right;
+        linear-gradient(to right, rgb(from var(--accent-dark1) r g b / 20%), transparent 30%, transparent 70%, rgb(from var(--accent-dark1) r g b / 20%)) top,
+        linear-gradient(to left, rgb(from var(--accent-dark1) r g b / 20%), transparent 30%, transparent 70%, rgb(from var(--accent-dark1) r g b / 20%)) bottom,
+        linear-gradient(to bottom, rgb(from var(--accent-dark1) r g b / 20%), transparent 30%, transparent 70%, rgb(from var(--accent-dark1) r g b / 20%)) left,
+        linear-gradient(to top, rgb(from var(--accent-dark1) r g b / 20%), transparent 30%, transparent 70%, rgb(from var(--accent-dark1) r g b / 20%)) right;
 
     background-repeat: no-repeat;
-    background-size: 0% 0.5rem, 0% 0.5rem, 0.25rem 100%, 0.25rem 100%;
+    background-size: 100% 50%, 100% 50%, 100% 100%, 50% 100%;
     background-position: top, bottom, left, right;
     opacity: 0.5;
     border: 2px solid transparent;
     background-clip: padding-box;
     transition: background-size 1s ease;
+    border-radius: 1rem;
 }
 
 .faded-corner-borders-hover::before {
