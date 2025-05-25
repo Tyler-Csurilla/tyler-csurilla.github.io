@@ -39,7 +39,7 @@
 }
 
 .theme-switcher-section:hover {
-    background-color: var(--background-light3);
+    background-color: rgb(from var(--background-dark1) r g b / 55%);
 }
 
 .theme-switcher-section:active {

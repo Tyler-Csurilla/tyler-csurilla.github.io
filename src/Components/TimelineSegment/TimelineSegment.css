@@ -242,6 +242,7 @@
         text-align: center;
         max-width: min(calc(100vw - 4rem), 30rem);
         white-space: normal;
+        word-wrap: break-word;
     }
 
     .timeline-tooltip-time-period {

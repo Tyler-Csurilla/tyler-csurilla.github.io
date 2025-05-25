@@ -8,16 +8,14 @@ const createTheme = (
   secondaryColor: string,
   accentColor: string,
   fontFamily: string
-): Theme => {
-  return {
-    title,
-    background: generateColorScale(bgColor),
-    primary: generateColorScale(primaryColor),
-    secondary: generateColorScale(secondaryColor),
-    accent: generateColorScale(accentColor),
-    font_family: fontFamily,
-  };
-};
+): Theme => ({
+  title,
+  background: generateColorScale(bgColor),
+  primary: generateColorScale(primaryColor),
+  secondary: generateColorScale(secondaryColor),
+  accent: generateColorScale(accentColor),
+  font_family: fontFamily,
+});
 
 export const defaultThemes: Record<string, Theme> = {
   light: createTheme(
@@ -36,53 +34,53 @@ export const defaultThemes: Record<string, Theme> = {
     "#808080",
     '"Inter", sans-serif'
   ),
-  ocean_breeze: createTheme(
-    "Ocean Breeze 🌊",
-    "#E5F2F8",
-    "#2C5282",
-    "#63B3ED",
-    "#38B2AC",
+  morning_mist: createTheme(
+    "Morning Mist 🌫️",
+    "#F5F8FC",
+    "#2E2C3C",
+    "#7E76A3",
+    "#B39DDB",
     '"Montserrat", sans-serif'
   ),
-  forest_retreat: createTheme(
-    "Forest Retreat 🌿",
-    "#EAEFEA",
-    "#2D3B2D",
-    "#687D6C",
-    "#81B29A",
-    '"Merriweather", serif'
-  ),
-  warm_sunset: createTheme(
-    "Warm Sunset 🌅",
-    "#FDF2E7",
-    "#4A3933",
-    "#B06E50",
-    "#ED8936",
-    '"Playfair Display", serif'
-  ),
-  royal_velvet: createTheme(
-    "Royal Velvet 👑",
-    "#26243B",
-    "#CFC9E1",
-    "#9C8EC1",
-    "#9f10fe",
-    '"Poppins", sans-serif'
-  ),
-  cotton_candy: createTheme(
-    "Cotton Candy 🍬",
-    "#FCF1F8",
-    "#9D4C6E",
-    "#DB7093",
-    "#F687B3",
+  pastel_pop: createTheme(
+    "Pastel Pop 🍭",
+    "#FFF7F9",
+    "#3C2C33",
+    "#AE8F97",
+    "#FF92C2",
     '"Quicksand", sans-serif'
   ),
-  mint_fresh: createTheme(
-    "Mint Fresh 🌱",
-    "#F3F9F4",
-    "#2C4F43",
-    "#5E9F8F",
-    "#4FD1C5",
+  arctic_aura: createTheme(
+    "Arctic Aura ❄️",
+    "#F0FAFF",
+    "#234D70",
+    "#5DA4C5",
+    "#00C8E0",
     '"Nunito", sans-serif'
+  ),
+  midnight_circuit: createTheme(
+    "Midnight Circuit ⚡",
+    "#12141B",
+    "#D1D9FF",
+    "#6B79A6",
+    "#5373FF",
+    '"Roboto Mono", monospace'
+  ),
+  noir_orchard: createTheme(
+    "Noir Orchard 🌿",
+    "#1A221A",
+    "#DBFCD6",
+    "#6E8F6A",
+    "#3DBE6C",
+    '"Merriweather", serif'
+  ),
+  crimson_void: createTheme(
+    "Crimson Void 🩸",
+    "#1B1314",
+    "#F2CDD0",
+    "#9C6E72",
+    "#FF445E",
+    '"Poppins", sans-serif'
   ),
   random: {
     title: "Random Theme 🎲",
