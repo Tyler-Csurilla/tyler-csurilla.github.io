@@ -132,7 +132,7 @@ const LandingPage: React.FC = () => {
 
   const educationEvents = [
     {
-      timePeriod: "2015–2019",
+      timePeriod: "2015 – 2019",
       label: "Pittsburgh Science & Technology Academy",
       icon: backpackIcon,
       description: (
@@ -151,7 +151,7 @@ const LandingPage: React.FC = () => {
       link: "https://en.wikipedia.org/wiki/Pittsburgh_Science_and_Technology_Academy",
     },
     {
-      timePeriod: "2019–2021",
+      timePeriod: "2019 – 2021",
       label: "Community College of Allegheny County",
       icon: graduationCapIcon,
       description: (
@@ -261,13 +261,13 @@ const LandingPage: React.FC = () => {
       link: "https://www.bny.com/",
     },
     {
-      timePeriod: "2022 – Present",
-      label: "BNY Mellon – Full‑Stack Developer",
+      timePeriod: "2022 - 2025",
+      label: "BNY Mellon - Full‑Stack Engineer",
       icon: rightArrowIcon,
       description: (
         <div className="tt-card">
           <p className="tt-heading">
-            <strong>Current Position</strong>
+            <strong>Former Position</strong>
           </p>
 
           <p className="tt-subtitle">
@@ -287,21 +287,47 @@ const LandingPage: React.FC = () => {
               used by thousands.
             </li>
             <li>
-              Lead major changes on rewrite of critical internal CRUD
+              Led major changes on rewrite of critical internal CRUD
               applications.
             </li>
           </ul>
 
           <p className="tt-note">
             <em>
-              At BNY I continue to learn and grow as a developer. I am
-              constantly challenged to think outside the box and find new ways
-              to solve increasingly complex and interesting problems.
+              This role provided continual growth and exposure to large-scale
+              enterprise development.
             </em>
           </p>
         </div>
       ),
       link: "https://www.bny.com/",
+    },
+    {
+      timePeriod: "2025 - Present",
+      label: "PNC - Full‑Stack Engineer",
+      icon: rightArrowIcon,
+      description: (
+        <div className="tt-card">
+          <p className="tt-heading">
+            <strong>Current Position</strong>
+          </p>
+
+          <p className="tt-subtitle">
+            <em>Hybrid role based in Pittsburgh</em>
+          </p>
+
+          <br />
+          <ul className="tt-list">
+          </ul>
+
+          <p className="tt-note">
+            <em>
+              At PNC I continue to grow professionally, tackling new challenges in the financial technology space.
+            </em>
+          </p>
+        </div>
+      ),
+      link: "https://www.pnc.com/",
     },
   ];
 
@@ -345,7 +371,7 @@ const LandingPage: React.FC = () => {
           >
             <div>
               <h2>Full-Stack</h2>
-              <h2>Developer</h2>
+              <h2>Engineer</h2>
             </div>
             <h3 style={{ fontStyle: "italic" }}>
               <span style={{ whiteSpace: "nowrap" }}>
